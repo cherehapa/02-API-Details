@@ -1,0 +1,383 @@
+FORMAT: 1A
+HOST: http://api.staging.cherehapa.ru/v2
+
+#API проекта "Черехапа Страхование" v2.0 - Общая схема работы с API v2.0
+
+## Схема работы с API v2.0
+API v.2 строится на базе RESTful схемы, т.е., в целом обращение идет по одним и тем же адресам, а действие, выполняемое через API определяется указанным в запросе HTTP-методом.
+Обозначения:
+- [api_base] - базовый адрес конкретного API. Например: [HOST]
+- [resource] - название ресурса (объекта), с которым ведется работа. Например: country или order
+- [function] - идетификатор дополнительной функции действия над объектом
+- [id] - уникальный код элемента в базе данных
+- [] - необязательные параметры
+
+## Перечень общих методов API
+
+
+| Название метода    | Описание                                               | URL                        |HTTP-метод | Пример URL |                            
+|--------------------|--------------------------------------------------------|----------------------------|-----------|------------|
+| index              | Получение перечня объектов                             | api_base/resource      | GET       | http://api.staging.cherehapa.ru/v2/country |
+| store              | Создание нового объекта                                | api_base/resource      | POST      | http://api.staging.cherehapa.ru/v2/country |
+| show               | Получение подробных данных об объекте                  | api_base/resource/id | GET       | http://api.staging.cherehapa.ru/v2/country/1 |
+| update             | Обновление свойств объекта                             | api_base/resource/id | PUT       | http://api.staging.cherehapa.ru/v2/country/1 |
+| destroy            | Удаление объекта из базы или отмена действия объекта   | api_base/resource/id | DELETE    | http://api.staging.cherehapa.ru/v2/country/1 |
+
+## Полный перечень объектов и методов
+
+## Получение перечня стран [/country?key={key}]
+
++ Parameters
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+
+### Метод: GET /country [GET]
+
+Выводится полный список стран (в примере показано только 3 страны, полный список можно увидеть выполнив запрос)
++ Response 200 (application/json)
+
+            {
+                "status": 200,
+                "country": [
+                        {
+                        "id": 6,
+                        "code": "abhazia",
+                        "name": "Абхазия",
+                        "enName": "Abkhazia",
+                        "fullName": "Республика Абхазия",
+                        "iso2": "AB",
+                        "iso3": "ABH",
+                        "countryAlias": [ 
+                            "All the world, exept USA, Japan, Australia,NewZealand,Canada"
+                          ]
+                        },
+                        {
+                          "id": 9,
+                          "code": "australia",
+                          "name": "Австралия",
+                          "enName": "Australia",
+                          "fullName": "Австралийский Союз",
+                          "iso2": "AU",
+                          "iso3": "AUS",
+                          "countryAlias": []
+                        },
+                        {
+                          "id": 12,
+                          "code": "austria",
+                          "name": "Австрия",
+                          "enName": "Austria",
+                          "fullName": "Австрийская Республика",
+                          "iso2": "AT",
+                          "iso3": "AUT",
+                          "countryAlias": [
+                            "AUSTRIA, SHENGEN"
+                          ]
+                        }
+            }
+
+
+## Информация о стране с кодом id [/country/{id}?key={key}]
+
++ Parameters
+    + id: `570` (optional, number) - id страны (например Россия - 570)
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+
+### Метод: GET /country/id [GET]
+
+Выводится информация о выбранной стране
++ Response 200 (application/json)
+
+            {
+              "status": 200,
+              "country": {
+                "id": 570,
+                "code": "russia",
+                "name": "Россия",
+                "enName": "Russia",
+                "fullName": "Российская Федерация",
+                "iso2": "RU",
+                "iso3": "RUS",
+                "countryAlias": [
+                  "RUSSIA FEDERATION",
+                  "РОССИЯ, СТРАНЫ СНГ",
+                  "Крым",
+                  "Сочи"
+                ]
+            }
+
+## Список групп стран [/countryGroup?key={key}]
+
++ Parameters
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+
+### Метод: GET /countryGroup [GET]
+
+Выводится информация обо всех группах стран. ВНИМАНИЕ полный запрос выполняется ОЧЕНЬ ДОЛГО (от 1 до нескольких минут). В примере дан сильно усеченный пример вывода. Рекомендуется выполнять запрос с фильтром.
++ Response 200 (application/json)
+
+            {
+              "status": 200,
+              "countryGroup": {
+                "id": 3,
+                "code": "europe",
+                "name": "Страны Европы",
+                "companyId": null,
+                "isPublic": 0,
+                "country": [
+                  {
+                    "id": 12,
+                    "code": "austria",
+                    "name": "Австрия"
+                  },
+                  {
+                    "id": 18,
+                    "code": "albania",
+                    "name": "Албания"
+                  },
+                  {
+                    "id": 30,
+                    "code": "andorra",
+                    "name": "Андорра"
+                  },
+                  {
+                    "id": 60,
+                    "code": "byelorussia",
+                    "name": "Белоруссия"
+                  },
+                  {
+                    "id": 63,
+                    "code": "belgium",
+                    "name": "Бельгия"
+                  },
+                  {
+                    "id": 72,
+                    "code": "bulgaria",
+                    "name": "Болгария"
+                  }
+            }
+
+
+
+## Подробные данные группы стран по id [/countryGroup/{id}?key={key}]
+
++ Parameters
+    + id: `3` (optional, number) - id группы стран (например Европа - 3)
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+
+### Метод: GET /countryGroup/id [GET]
+
+Выводится информация о выбранной группе стран, в примере вывод ограничен первыми 6-ю странами из списка "Европа", для получения полного списка - выполните запрос с id=3.
++ Response 200 (application/json)
+
+            {
+              "status": 200,
+              "countryGroup": {
+                "id": 3,
+                "code": "europe",
+                "name": "Страны Европы",
+                "companyId": null,
+                "isPublic": 0,
+                "country": [
+                      {
+                        "id": 12,
+                        "code": "austria",
+                        "name": "Австрия"
+                      },
+                      {
+                        "id": 18,
+                        "code": "albania",
+                        "name": "Албания"
+                      },
+                      {
+                        "id": 30,
+                        "code": "andorra",
+                        "name": "Андорра"
+                      },
+                      {
+                        "id": 60,
+                        "code": "byelorussia",
+                        "name": "Белоруссия"
+                      },
+                      {
+                        "id": 63,
+                        "code": "belgium",
+                        "name": "Бельгия"
+                      },
+                      {
+                        "id": 72,
+                        "code": "bulgaria",
+                        "name": "Болгария"
+                      }
+            }
+
+## Список страховых компаний, доступных партнеру [/company?key={key}]
+
++ Parameters
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+
+### Метод: GET /company [GET]
+
+Выводится список страховых компаний, доступных партнеру. В примере показаны только 3 компании, для того, чтобы увидеть весь список - выполните запрос.
++ Response 200 (application/json)
+
+            {
+              "status": 200,
+              "company": {
+                      "id": 51,
+                      "code": "soglasie",
+                      "isBlocked": 0,
+                      "name": "Согласие",
+                      "url": "http://www.soglasie.ru/",
+                      "logo": "//static.staging.cherehapa.ru/i/latest/logo/155x56/soglasie.png",
+                      "whiteLogo": null,
+                      "color": "#e87932",
+                      "insuranceRules": "//static.staging.cherehapa.ru/d/latest/rules/soglasie.pdf",
+                      "insuranceHospitals": null,
+                      "cancelEmail": "ap@tsys.pw",
+                      "useLocalName": 0,
+                      "usePassport": 0,
+                      "childAge": null,
+                      "agentsFee": 30,
+                      "roundType": 0,
+                      "processType": null,
+                      "recommendationText": "",
+                      "maxAge": 85,
+                      "useFullSports": 0,
+                      "additionalClasses": null
+                    },
+                    {
+                      "id": 52,
+                      "code": "rstandart",
+                      "isBlocked": 0,
+                      "name": "Русский Стандарт",
+                      "url": "http://www.rsins.ru/",
+                      "logo": "//static.staging.cherehapa.ru/i/latest/logo/155x56/rsins.png",
+                      "whiteLogo": null,
+                      "color": "#8f0a0a",
+                      "insuranceRules": "//static.staging.cherehapa.ru/d/latest/rules/rs.pdf",
+                      "insuranceHospitals": null,
+                      "cancelEmail": "ap@tsys.pw",
+                      "useLocalName": 1,
+                      "usePassport": 0,
+                      "childAge": null,
+                      "agentsFee": 30,
+                      "roundType": 0,
+                      "processType": null,
+                      "recommendationText": "",
+                      "maxAge": 80,
+                      "useFullSports": 0,
+                      "additionalClasses": null
+                    },
+                    {
+                      "id": 54,
+                      "code": "uralsib",
+                      "isBlocked": 1,
+                      "name": "Уралсиб",
+                      "url": "http://www.uralsibins.ru/",
+                      "logo": "//static.staging.cherehapa.ru/i/latest/logo/155x56/uralsib.png",
+                      "whiteLogo": null,
+                      "color": "#52ac56",
+                      "insuranceRules": null,
+                      "insuranceHospitals": null,
+                      "cancelEmail": "ap@tsys.pw",
+                      "useLocalName": 0,
+                      "usePassport": 0,
+                      "childAge": null,
+                      "agentsFee": 30,
+                      "roundType": 0,
+                      "processType": null,
+                      "recommendationText": "",
+                      "maxAge": 0,
+                      "useFullSports": 0,
+                      "additionalClasses": null
+                    }
+
+## Подробная информацию о компании по id [/company/{id}?key={key}]
+
++ Parameters
+    + id: `51` (optional, number) - id группы стран (например Согласие - 51)
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+
+### Метод: GET /company/id [GET]
+
+Выводится подробная информация о страховой компании по id (только одной) из всего списка
++ Response 200 (application/json)
+
+            {
+              "status": 200,
+              "company": {
+                "id": 51,
+                "code": "soglasie",
+                "isBlocked": 0,
+                "name": "Согласие",
+                "url": "http://www.soglasie.ru/",
+                "logo": "//static.staging.cherehapa.ru/i/latest/logo/155x56/soglasie.png",
+                "whiteLogo": null,
+                "color": "#e87932",
+                "insuranceRules": "//static.staging.cherehapa.ru/d/latest/rules/soglasie.pdf",
+                "insuranceHospitals": null,
+                "cancelEmail": "ap@tsys.pw",
+                "useLocalName": 0,
+                "usePassport": 0,
+                "childAge": null,
+                "agentsFee": 30,
+                "roundType": 0,
+                "processType": null,
+                "recommendationText": "",
+                "maxAge": 85,
+                "useFullSports": 0,
+                "additionalClasses": null
+              }
+            }
+
+## Список страховых услуг, доступных партнеру [/service?key={key}]
+
++ Parameters
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+
+### Метод: GET /service [GET]
+
+Выводится список всех страховых услуг, доступных партнеру. В примере приведена только запись с id=1, для получения всего списка - выполните запрос.
++ Response 200 (application/json)
+
+            {
+              "status": 200,
+              "service": [
+                {
+                  "id": 1,
+                  "sortIndex": 10,
+                  "code": "medicine",
+                  "name": "Медицинское страхование",
+                  "shortName": "Медицинское страхование",
+                  "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
+                  "units": "currency",
+                  "serviceGroupId": 21,
+                  "defaultValue": 30000,
+                  "isGroupMaster": 1,
+                  "unitsText": {
+                    "EUR": {
+                      "0": "евро",
+                      "30000": "евро",
+                      "50000": "евро",
+                      "100000": "евро"
+                    },
+                    "RUB": {
+                      "0": "рублей",
+                      "30000": "рублей",
+                      "50000": "рублей",
+                      "100000": "рублей"
+                    },
+                    "USD": {
+                      "0": "долларов",
+                      "30000": "долларов",
+                      "50000": "долларов",
+                      "100000": "долларов"
+                    }
+                  },
+                  "serviceValue": [
+                    0,
+                    30000,
+                    50000,
+                    100000
+                  ]
+                }
+            }
