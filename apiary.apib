@@ -5,10 +5,14 @@ HOST: http://api.staging.cherehapa.ru/v2
 
 ## Полный перечень объектов и методов
 
+Ниже приведены все методы и объекты, с помощью которых можно получить ту или иную информацию от системы.
+В каждом разделе есть пример ПРАВИЛЬНОГО ответа системы для сравнения.
+В тех случаях когда указано, что запрос выполняется очень долго, рекомендуется выполнять запросы с фильтром или быть готовым ожидать от 1 минуты и более.
+
 ## Получение перечня стран [/country?key={key}]
 
 + Parameters
-    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /country [GET]
 
@@ -59,7 +63,7 @@ HOST: http://api.staging.cherehapa.ru/v2
 
 + Parameters
     + id: `570` (optional, number) - id страны (например Россия - 570)
-    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /country/id [GET]
 
@@ -87,7 +91,7 @@ HOST: http://api.staging.cherehapa.ru/v2
 ## Список групп стран [/countryGroup?key={key}]
 
 + Parameters
-    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /countryGroup [GET]
 
@@ -141,7 +145,7 @@ HOST: http://api.staging.cherehapa.ru/v2
 
 + Parameters
     + id: `3` (optional, number) - id группы стран (например Европа - 3)
-    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /countryGroup/id [GET]
 
@@ -192,7 +196,7 @@ HOST: http://api.staging.cherehapa.ru/v2
 ## Список страховых компаний, доступных партнеру [/company?key={key}]
 
 + Parameters
-    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /company [GET]
 
@@ -274,8 +278,8 @@ HOST: http://api.staging.cherehapa.ru/v2
 ## Подробная информацию о компании по id [/company/{id}?key={key}]
 
 + Parameters
-    + id: `51` (optional, number) - id группы стран (например Согласие - 51)
-    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+    + id: `51` (optional, number) - id компании (например Согласие - 51)
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /company/id [GET]
 
@@ -312,11 +316,11 @@ HOST: http://api.staging.cherehapa.ru/v2
 ## Список страховых услуг, доступных партнеру [/service?key={key}]
 
 + Parameters
-    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /service [GET]
 
-Выводится список всех страховых услуг, доступных партнеру. В примере приведена только запись с id=1, для получения всего списка - выполните запрос.
+Выводится список страховых услуг, доступных партнеру. В примере приведена только запись с id=1, для получения всего списка - выполните запрос.
 + Response 200 (application/json)
 
             {
@@ -360,4 +364,147 @@ HOST: http://api.staging.cherehapa.ru/v2
                     100000
                   ]
                 }
+            }
+            
+## Подробная информация о страховой услуге по id [/service/{id}?key={key}]
+
++ Parameters
+    + id: `5` (optional, number) - id страховой услуги (например Вызов врача по медицинским показаниям - 5)
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
+
+### Метод: GET /service/id [GET]
+
+Выводится подробная информация о страховой услуге по id. Для получения информации по различным услугам - выполните запрос с различным id.
++ Response 200 (application/json)
+
+            {
+             "status": 200,
+              "service": {
+                "id": 5,
+                "sortIndex": 20,
+                "code": "doctorCall",
+                "name": "Вызов врача по медицинским показаниям",
+                "shortName": "Вызов врача по медицинским показаниям",
+                "description": null,
+                "units": null,
+                "serviceGroupId": 21,
+                "defaultValue": 0,
+                "isGroupMaster": 0,
+                "unitsText": false,
+                "serviceValue": [
+                  1
+                ]
+              }
+            }
+
+## Список групп страховых услуг, доступных партнеру [/serviceGroup?key={key}]
+
++ Parameters
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
+
+### Метод: GET /serviceGroup [GET]
+
+Выводится cписок групп страховых услуг, доступных партнеру. В примере приведены только 2 записи из всего списка. Выполните запрос, для получения всего списка.
++ Response 200 (application/json)
+
+            {
+             "status": 200,
+              "serviceGroup": [
+                {
+                  "id": 38,
+                  "code": "accidents",
+                  "name": "Страхование от несчастных случаев",
+                  "parentGroupId": 70,
+                  "sortIndex": 5,
+                  "description": "В случае, если путешественник пострадал и получил травму, страховая компания не только оплатит лечение, но выплатит еще и дополнительную компенсацию. "
+                },
+                {
+                  "id": 21,
+                  "code": "medicine",
+                  "name": "Медицинское страхование",
+                  "parentGroupId": 67,
+                  "sortIndex": 10,
+                  "description": "Это базовая услуга. Нажмите «подробно» здесь или у выбранной страховой компании и Вы увидите, что включает страховка той или иной страховой компании. Часть опций входит в страховку по умолчанию, часть опций Вы можете выбрать дополнительно и мы порекомендуем ту страховую компанию, где эти опции включены в страховое покрытие. Совет: мы рекомендуем выбирать максимальную сумму страховки, так как при тяжелом страховой случае, где потребуется медицинская транспортировка, минимальной страховой суммы может не хватить и Вам придется доплачивать самостоятельно. Если у страховой компании действуют значимые ограничения (например, франшиза) – мы обязательно покажем Вам эту информацию. Нам действительно важно, чтобы Вы понимали, что включено в страховку и на какую помощь можете рассчитывать."
+                }
+            }
+            
+## Подробная информация о группе страховых услуг по id [/serviceGroup/{id}?key={key}]
+
++ Parameters
+    + id: `38` (optional, number) - id страховой услуги (например Страхование от несчастных случаев - 38)
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
+
+### Метод: GET /serviceGroup/id [GET]
+
+Выводится подробная информация о группе страховых услуг по id.
++ Response 200 (application/json)
+
+            {
+             "status": 200,
+              "serviceGroup": {
+                "id": 38,
+                "code": "accidents",
+                "name": "Страхование от несчастных случаев",
+                "parentGroupId": 70,
+                "sortIndex": 5,
+                "description": "В случае, если путешественник пострадал и получил травму, страховая компания не только оплатит лечение, но выплатит еще и дополнительную компенсацию. "
+              }
+            }
+
+## Возвращает список видов спорта [/sport?key={key}]
+
++ Parameters
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
+
+### Метод: GET /sport [GET]
+
+Выводится список видов спорта. В примере даны только первые 3 записи списка. Для получения всего списка, выполните запрос.
++ Response 200 (application/json)
+
+            {
+             "status": 200,
+              "sport": [
+                {
+                  "id": 2,
+                  "name": "Авиационный спорт",
+                  "code": "airSports",
+                  "isCompetition": 0,
+                  "sortIndex": 100000
+                },
+                {
+                  "id": 5,
+                  "name": "Автомобильный спорт",
+                  "code": "motorSport",
+                  "isCompetition": 0,
+                  "sortIndex": 100000
+                },
+                {
+                  "id": 8,
+                  "name": "Аквааэробика",
+                  "code": "waterAerobics",
+                  "isCompetition": 0,
+                  "sortIndex": 100000
+                }
+            }
+
+## Подробная информация о виде спорта по id [/sport/{id}?key={key}]
+
++ Parameters
+    + id: `2` (optional, number) - id вида спорта (например Авиационный спорт - 2)
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
+
+### Метод: GET /sport [GET]
+
+Выводится список видов спорта. В примере даны только первые 3 записи списка. Для получения всего списка, выполните запрос.
++ Response 200 (application/json)
+
+            {
+             "status": 200,
+              "sport": {
+                "id": 2,
+                "name": "Авиационный спорт",
+                "code": "airSports",
+                "isCompetition": 0,
+                "sortIndex": 100000
+              }
             }
