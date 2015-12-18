@@ -3192,3 +3192,13 @@ HOST: http://api.staging.cherehapa.ru/v2
                 "sport": []
               }
             }
+            
+## Создает новый запрос [/request?insurer%5Bname%5D={insurer%5Bname%5D}&insurer%5BlastName%5D=Pavlov&insurer%5Bemail%5D=ap%40tsys.pw&dateStart=22.12.2014&dateEnd=22.12.2014&tourist%5B0%5D%5Bbirthday%5D=03.01.1983&tourist%5B0%5D%5BfirstName%5D=Alexander&tourist%5B0%5D%5BlastName%5D=Pavlov&service%5Bmultipolicy%5D=0&service%5Bmedicine%5D=30000&service%5BaviaCargo%5D=1500&service%5BtripCancel%5D=0&service%5Bpregnancy%5D=0&service%5Baccident%5D=0&service%5BcivilLiability%5D=0&service%5Bproperty%5D=0&key=%5B{key}%5D&country%5B%5D=italy&_method=post]
+
++ Parameters
+    + insurer%5Bname%5D: Alexander (optional, string) - имя страхователя (например Alexander)
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
+
+### Метод: POST /request [POST]
+
+Выводится список запросов, сделанных партнером. В примере дана только первая запись из всего списка. Для получения всего списка, выполните запрос.
