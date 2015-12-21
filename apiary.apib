@@ -13,7 +13,7 @@ HOST: http://api.staging.cherehapa.ru/v2
 
 В тех случаях когда указано, что запрос выполняется очень долго, рекомендуется выполнять запросы с фильтром или быть готовым ожидать от 1 минуты и более.
 
-## country Получение перечня стран [/country?key={key}]
+## country: получение перечня стран [/country?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -62,10 +62,10 @@ HOST: http://api.staging.cherehapa.ru/v2
                         }
             }
 
-## country Информация о стране с кодом id [/country/{id}?key={key}]
+## country: информация о стране с кодом id [/country/{id}?key={key}]
 
 + Parameters
-    + id: `570` (optional, number) - id страны (например Россия - 570)
+    + id: `570` (required, number) - id страны (например Россия - 570)
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /country/id [GET]
@@ -91,7 +91,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                 ]
             }
 
-## countryGroup Список групп стран [/countryGroup?key={key}]
+## countryGroup: список групп стран [/countryGroup?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -142,10 +142,10 @@ HOST: http://api.staging.cherehapa.ru/v2
                   }
             }
 
-## countryGroup Подробные данные группы стран по id [/countryGroup/{id}?key={key}]
+## countryGroup: подробные данные группы стран по id [/countryGroup/{id}?key={key}]
 
 + Parameters
-    + id: `3` (optional, number) - id группы стран (например Европа - 3)
+    + id: `3` (required, number) - id группы стран (например Европа - 3)
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /countryGroup/id [GET]
@@ -194,7 +194,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                       }
             }
 
-## company Список страховых компаний, доступных партнеру [/company?key={key}]
+## company: список страховых компаний, доступных партнеру [/company?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -276,10 +276,10 @@ HOST: http://api.staging.cherehapa.ru/v2
                       "additionalClasses": null
                     }
 
-## company Подробная информацию о компании по id [/company/{id}?key={key}]
+## company: подробная информацию о компании по id [/company/{id}?key={key}]
 
 + Parameters
-    + id: `51` (optional, number) - id компании (например Согласие - 51)
+    + id: `51` (required, number) - id компании (например Согласие - 51)
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /company/id [GET]
@@ -314,7 +314,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
 
-## service Список страховых услуг, доступных партнеру [/service?key={key}]
+## service: список страховых услуг, доступных партнеру [/service?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -367,10 +367,10 @@ HOST: http://api.staging.cherehapa.ru/v2
                 }
             }
             
-## service Подробная информация о страховой услуге по id [/service/{id}?key={key}]
+## service: подробная информация о страховой услуге по id [/service/{id}?key={key}]
 
 + Parameters
-    + id: `5` (optional, number) - id страховой услуги (например Вызов врача по медицинским показаниям - 5)
+    + id: `5` (required, number) - id страховой услуги (например Вызов врача по медицинским показаниям - 5)
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /service/id [GET]
@@ -398,7 +398,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
 
-## serviceGroup Список групп страховых услуг, доступных партнеру [/serviceGroup?key={key}]
+## serviceGroup: список групп страховых услуг, доступных партнеру [/serviceGroup?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -429,10 +429,10 @@ HOST: http://api.staging.cherehapa.ru/v2
                 }
             }
             
-## serviceGroup Подробная информация о группе страховых услуг по id [/serviceGroup/{id}?key={key}]
+## serviceGroup: подробная информация о группе страховых услуг по id [/serviceGroup/{id}?key={key}]
 
 + Parameters
-    + id: `38` (optional, number) - id страховой услуги (например Страхование от несчастных случаев - 38)
+    + id: `38` (required, number) - id страховой услуги (например Страхование от несчастных случаев - 38)
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /serviceGroup/id [GET]
@@ -452,7 +452,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
 
-## sport Возвращает список видов спорта [/sport?key={key}]
+## sport: возвращает список видов спорта [/sport?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -488,10 +488,10 @@ HOST: http://api.staging.cherehapa.ru/v2
                 }
             }
 
-## sport Подробная информация о виде спорта по id [/sport/{id}?key={key}]
+## sport: подробная информация о виде спорта по id [/sport/{id}?key={key}]
 
 + Parameters
-    + id: `2` (optional, number) - id вида спорта (например Авиационный спорт - 2)
+    + id: `2` (required, number) - id вида спорта (например Авиационный спорт - 2)
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /sport [GET]
@@ -510,7 +510,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
 
-## insuranceProduct Список страховых продуктов, доступных партнеру [/insuranceProduct?key={key}]
+## insuranceProduct: список страховых продуктов, доступных партнеру [/insuranceProduct?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -1759,10 +1759,10 @@ HOST: http://api.staging.cherehapa.ru/v2
             }
             }
             
-## insuranceProduct Подробная информация о страховом продукте по id [/insuranceProduct/{id}?key={key}]
+## insuranceProduct: подробная информация о страховом продукте по id [/insuranceProduct/{id}?key={key}]
 
 + Parameters
-    + id: `1` (optional, number) - id страхового продукта (например Стандарт Плюс - 1)
+    + id: `1` (required, number) - id страхового продукта (например Стандарт Плюс - 1)
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /insuranceProduct/id [GET]
@@ -3008,7 +3008,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
             
-## request Список запросов, сделанных партнером [/request?key={key}]
+## request: список запросов, сделанных партнером [/request?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -3102,10 +3102,10 @@ HOST: http://api.staging.cherehapa.ru/v2
                   } 
             }
             
-## request Подробная информация о запросе, сделанном партнером [/request/{id}?key={key}]
+## request: подробная информация о запросе, сделанном партнером [/request/{id}?key={key}]
 
 + Parameters
-    + id: `3` (optional, number) - id запроса партнера (например 3)
+    + id: `3` (required, number) - id запроса партнера (например 3)
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: GET /request/id [GET]
@@ -3197,3 +3197,134 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
             
+## request: создание нового запроса [/request?insurer%5Bname%5D=Alexander&insurer%5BlastName%5D=Pavlov&insurer%5Bemail%5D=ap%40tsys.pw&dateStart=22.12.2014&dateEnd=22.12.2014&tourist%5B0%5D%5Bbirthday%5D=03.01.1983&tourist%5B0%5D%5BfirstName%5D=Alexander&tourist%5B0%5D%5BlastName%5D=Pavlov&service%5Bmultipolicy%5D=0&service%5Bmedicine%5D=30000&service%5BaviaCargo%5D=1500&service%5BtripCancel%5D=0&service%5Bpregnancy%5D=0&service%5Baccident%5D=0&service%5BcivilLiability%5D=0&service%5Bproperty%5D=0&key={key}&country%5B%5D=italy&_method=post]
+
++ Parameters
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
+
+### Метод: POST /request [POST]
+
+Создает новый запрос.
+
++ Response 201 (application/json)
+
+            {
+                "status": 201,
+                  "request": {
+                    "dateStart": "22.12.2014",
+                    "dateEnd": "22.12.2014",
+                    "insurerId": 4499,
+                    "insuredDays": true,
+                    "dateUpdated": "21.12.2015",
+                    "dateCreated": "21.12.2015",
+                    "id": 2092
+                  },
+                  "user": {
+                    "id": 4499,
+                    "lastName": "Pavlov",
+                    "name": "Alexander",
+                    "secondName": "",
+                    "email": "ap@tsys.pw",
+                    "personalPhone": "+7 (111) 111-11-11",
+                    "lastNameRU": "Лампочкин",
+                    "nameRU": "Ипполит",
+                    "secondNameRU": "Савельевич"
+                  },
+                  "country": [
+                    {
+                      "id": 213,
+                      "code": "italy",
+                      "name": "Италия",
+                      "enName": "Italy",
+                      "fullName": "Итальянская Республика",
+                      "iso2": "IT",
+                      "iso3": "ITA"
+                    }
+                  ],
+                  "tourist": [
+                    {
+                      "id": 352,
+                      "birthday": "03.01.1983",
+                      "firstName": "Alexander",
+                      "lastName": "Pavlov",
+                      "secondName": null,
+                      "hidden": 0,
+                      "age": 32
+                    }
+                  ]
+            }
+            
+## request: обновление свойств ранее созданного запроса [/request/{id}?insurer%5Bname%5D=Alexander&insurer%5BlastName%5D=Pavlov&insurer%5Bemail%5D=ap%40tsys.pw&dateStart=22.12.2014&dateEnd=22.12.2014&tourist%5B0%5D%5Bbirthday%5D=03.01.1983&tourist%5B0%5D%5BfirstName%5D=Alexander&tourist%5B0%5D%5BlastName%5D=Pavlov&service%5Bmultipolicy%5D=0&service%5Bmedicine%5D=30000&service%5BaviaCargo%5D=1500&service%5BtripCancel%5D=0&service%5Bpregnancy%5D=0&service%5Baccident%5D=0&service%5BcivilLiability%5D=0&service%5Bproperty%5D=0&key={key}&country%5B%5D=italy&_method=put]
+
++ Parameters
+    + id: `2093` (optional, number) - id запроса партнера (например 2093), рекомендуется выполнить предыдущий запрос и взять значение id из результатов
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
+
+### Метод: PUT /request [PUT]
+
+Обновляет свойства ранее созданного запроса
+
++ Response 200 (application/json)
+
+            {
+                "status": 200,
+                  "request": {
+                    "id": 2093,
+                    "insurerId": 4499,
+                    "dateStart": "22.12.2014",
+                    "dateEnd": "22.12.2014",
+                    "dateVisa": null,
+                    "insuredDays": 1,
+                    "currencyId": null,
+                    "source": null,
+                    "url": null,
+                    "dateCreated": "21.12.2015",
+                    "dateUpdated": "21.12.2015"
+                  },
+                  "user": {
+                    "id": 4499,
+                    "lastName": "Pavlov",
+                    "name": "Alexander",
+                    "secondName": "",
+                    "email": "ap@tsys.pw",
+                    "personalPhone": "+7 (111) 111-11-11",
+                    "lastNameRU": "Лампочкин",
+                    "nameRU": "Ипполит",
+                    "secondNameRU": "Савельевич"
+                  },
+                  "country": [
+                    {
+                      "id": 213,
+                      "code": "italy",
+                      "name": "Италия",
+                      "enName": "Italy",
+                      "fullName": "Итальянская Республика",
+                      "iso2": "IT",
+                      "iso3": "ITA"
+                    }
+                  ],
+                  "tourist": [
+                    {
+                      "id": 352,
+                      "birthday": "03.01.1983",
+                      "firstName": "Alexander",
+                      "lastName": "Pavlov",
+                      "secondName": null,
+                      "hidden": 0,
+                      "age": 32
+                    }
+                  ]
+            }
+
+
+## request: Удаляет запрос [/request/{id}?key={key}&_method=delete]
+
++ Parameters
+    + id: `2093` (optional, number) - id запроса партнера (например 2093), рекомендуется выполнить предыдущий запрос и взять значение id из результатов
+    + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
+
+### Метод: DELETE /request [DELETE]
+
+Удаляет запрос по его id
+
++ Response 204 (application/json)
