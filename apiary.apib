@@ -1,15 +1,16 @@
 FORMAT: 1A
 HOST: http://api.staging.cherehapa.ru/v2
 
-#API проекта "Черехапа Страхование" v2.0 - Полный перечень объектов и методов
+#API проекта "Черехапа Страхование" v2.0 - Основной перечень объектов и методов
 
-## Полный перечень объектов и методов
+## Основной перечень объектов и методов
 
-Ниже приведены все методы и объекты, с помощью которых можно получить ту или иную информацию от системы.
+Ниже приведены большая часть методов и объектов, с помощью которых можно получить ту или иную информацию от системы.
+Для продолжения знакомства с системой, смотрите раздел "Расчет и выписка полисов".
 В каждом разделе есть пример ПРАВИЛЬНОГО ответа системы для сравнения.
 В тех случаях когда указано, что запрос выполняется очень долго, рекомендуется выполнять запросы с фильтром или быть готовым ожидать от 1 минуты и более.
 
-## Получение перечня стран [/country?key={key}]
+## country Получение перечня стран [/country?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -58,7 +59,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                         }
             }
 
-## Информация о стране с кодом id [/country/{id}?key={key}]
+## country Информация о стране с кодом id [/country/{id}?key={key}]
 
 + Parameters
     + id: `570` (optional, number) - id страны (например Россия - 570)
@@ -87,7 +88,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                 ]
             }
 
-## Список групп стран [/countryGroup?key={key}]
+## countryGroup Список групп стран [/countryGroup?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -138,7 +139,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                   }
             }
 
-## Подробные данные группы стран по id [/countryGroup/{id}?key={key}]
+## countryGroup Подробные данные группы стран по id [/countryGroup/{id}?key={key}]
 
 + Parameters
     + id: `3` (optional, number) - id группы стран (например Европа - 3)
@@ -190,7 +191,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                       }
             }
 
-## Список страховых компаний, доступных партнеру [/company?key={key}]
+## company Список страховых компаний, доступных партнеру [/company?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -272,7 +273,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                       "additionalClasses": null
                     }
 
-## Подробная информацию о компании по id [/company/{id}?key={key}]
+## company Подробная информацию о компании по id [/company/{id}?key={key}]
 
 + Parameters
     + id: `51` (optional, number) - id компании (например Согласие - 51)
@@ -310,7 +311,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
 
-## Список страховых услуг, доступных партнеру [/service?key={key}]
+## service Список страховых услуг, доступных партнеру [/service?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -363,7 +364,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                 }
             }
             
-## Подробная информация о страховой услуге по id [/service/{id}?key={key}]
+## service Подробная информация о страховой услуге по id [/service/{id}?key={key}]
 
 + Parameters
     + id: `5` (optional, number) - id страховой услуги (например Вызов врача по медицинским показаниям - 5)
@@ -394,7 +395,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
 
-## Список групп страховых услуг, доступных партнеру [/serviceGroup?key={key}]
+## serviceGroup Список групп страховых услуг, доступных партнеру [/serviceGroup?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -425,7 +426,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                 }
             }
             
-## Подробная информация о группе страховых услуг по id [/serviceGroup/{id}?key={key}]
+## serviceGroup Подробная информация о группе страховых услуг по id [/serviceGroup/{id}?key={key}]
 
 + Parameters
     + id: `38` (optional, number) - id страховой услуги (например Страхование от несчастных случаев - 38)
@@ -448,7 +449,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
 
-## Возвращает список видов спорта [/sport?key={key}]
+## sport Возвращает список видов спорта [/sport?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -484,7 +485,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                 }
             }
 
-## Подробная информация о виде спорта по id [/sport/{id}?key={key}]
+## sport Подробная информация о виде спорта по id [/sport/{id}?key={key}]
 
 + Parameters
     + id: `2` (optional, number) - id вида спорта (например Авиационный спорт - 2)
@@ -506,7 +507,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
 
-## Список страховых продуктов, доступных партнеру [/insuranceProduct?key={key}]
+## insuranceProduct Список страховых продуктов, доступных партнеру [/insuranceProduct?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -1755,7 +1756,7 @@ HOST: http://api.staging.cherehapa.ru/v2
             }
             }
             
-## Подробная информация о страховом продукте по id [/insuranceProduct/{id}?key={key}]
+## insuranceProduct Подробная информация о страховом продукте по id [/insuranceProduct/{id}?key={key}]
 
 + Parameters
     + id: `1` (optional, number) - id страхового продукта (например Стандарт Плюс - 1)
@@ -3004,7 +3005,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
             
-## Список запросов, сделанных партнером [/request?key={key}]
+## request Список запросов, сделанных партнером [/request?key={key}]
 
 + Parameters
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -3098,7 +3099,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                   } 
             }
             
-## Подробная информация о запросе, сделанном партнером [/request/{id}?key={key}]
+## request Подробная информация о запросе, сделанном партнером [/request/{id}?key={key}]
 
 + Parameters
     + id: `3` (optional, number) - id запроса партнера (например 3)
