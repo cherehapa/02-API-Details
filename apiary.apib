@@ -3197,9 +3197,12 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
             
-## request: создание нового запроса [/request?insurer%5Bname%5D=Alexander&insurer%5BlastName%5D=Pavlov&insurer%5Bemail%5D=ap%40tsys.pw&dateStart=22.12.2014&dateEnd=22.12.2014&tourist%5B0%5D%5Bbirthday%5D=03.01.1983&tourist%5B0%5D%5BfirstName%5D=Alexander&tourist%5B0%5D%5BlastName%5D=Pavlov&service%5Bmultipolicy%5D=0&service%5Bmedicine%5D=30000&service%5BaviaCargo%5D=1500&service%5BtripCancel%5D=0&service%5Bpregnancy%5D=0&service%5Baccident%5D=0&service%5BcivilLiability%5D=0&service%5Bproperty%5D=0&key={key}&country%5B%5D=italy&_method=post]
+## request: создание нового запроса [/request?insurer%5Bname%5D={insurer_name}&insurer%5BlastName%5D={insurer_lastName}&insurer%5Bemail%5D={insurer_email}&dateStart=22.12.2014&dateEnd=22.12.2014&tourist%5B0%5D%5Bbirthday%5D=03.01.1983&tourist%5B0%5D%5BfirstName%5D=Alexander&tourist%5B0%5D%5BlastName%5D=Pavlov&service%5Bmultipolicy%5D=0&service%5Bmedicine%5D=30000&service%5BaviaCargo%5D=1500&service%5BtripCancel%5D=0&service%5Bpregnancy%5D=0&service%5Baccident%5D=0&service%5BcivilLiability%5D=0&service%5Bproperty%5D=0&key={key}&country%5B%5D=italy&_method=post]
 
 + Parameters
+    + insurer_name: `Alexander` (required, string)  - имя страхователя (например Alexander)
+    + insurer_lastName: `Pavlov` (required, string) - фамилия страхователя (например Pavlov)
+    + insurer_email: `ap%40tsys.pw` (required, string) - e-mail страхователя (например ap@tsys.pw)
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: POST /request [POST]
@@ -3257,7 +3260,7 @@ HOST: http://api.staging.cherehapa.ru/v2
 ## request: обновление свойств ранее созданного запроса [/request/{id}?insurer%5Bname%5D=Alexander&insurer%5BlastName%5D=Pavlov&insurer%5Bemail%5D=ap%40tsys.pw&dateStart=22.12.2014&dateEnd=22.12.2014&tourist%5B0%5D%5Bbirthday%5D=03.01.1983&tourist%5B0%5D%5BfirstName%5D=Alexander&tourist%5B0%5D%5BlastName%5D=Pavlov&service%5Bmultipolicy%5D=0&service%5Bmedicine%5D=30000&service%5BaviaCargo%5D=1500&service%5BtripCancel%5D=0&service%5Bpregnancy%5D=0&service%5Baccident%5D=0&service%5BcivilLiability%5D=0&service%5Bproperty%5D=0&key={key}&country%5B%5D=italy&_method=put]
 
 + Parameters
-    + id: `2093` (optional, number) - id запроса партнера (например 2093), рекомендуется выполнить предыдущий запрос и взять значение id из результатов
+    + id: `2093` (optional, number) - id запроса партнера (например 2093), рекомендуется выполнить предыдущий запрос "создание нового запроса" и взять значение id из результатов
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: PUT /request [PUT]
@@ -3317,10 +3320,10 @@ HOST: http://api.staging.cherehapa.ru/v2
             }
 
 
-## request: Удаляет запрос [/request/{id}?key={key}&_method=delete]
+## request: удаляет запрос [/request/{id}?key={key}&_method=delete]
 
 + Parameters
-    + id: `2093` (optional, number) - id запроса партнера (например 2093), рекомендуется выполнить предыдущий запрос и взять значение id из результатов
+    + id: `2093` (optional, number) - id запроса партнера (например 2093), рекомендуется выполнить предыдущий запрос "создание нового запроса" и взять значение id из результатов
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
 
 ### Метод: DELETE /request [DELETE]
