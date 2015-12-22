@@ -3280,7 +3280,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                   ]
             }
             
-## request: обновление свойств ранее созданного запроса [/request/{id}?dateStart={dateStart}&dateEnd={dateEnd}&insuredDays={insuredDays}&currency={currency}&country%5B%5D={country}&{FullService}&tourist%5B{tourist_id}%5D%5BfirstName%5D={tourist_firstName}&tourist%5B{tourist_id}%5D%5BlastName%5D={tourist_lastName}&tourist%5B{tourist_id}%5D%5Bhidden%5D={tourist_hidden}&tourist%5B{tourist_id}%5D%5Bbirthday%5D={tourist_birthday}&tourist%5B{tourist_id}%5D%5Bage%5D={tourist_age}&insurer%5Bname%5D={insurer_name}&insurer%5BlastName%5D={insurer_lastName}&insurer%5BsecondName%5D={insurer_secondName}&insurer%5BnameRU%5D={insurer_nameRU}&insurer%5BlastNameRU%5D={insurer_lastNameRU}&insurer%5BsecondNameRU%5D={insurer_secondNameRU}&insurer%5Bphone%5D={insurer_phone}&insurer%5Bemail%5D={insurer_email}&insuranceProduct%5B%5D={insuranceProduct}&paymentSystem={paymentSystem}&key={key}&marker={marker}&partnerId={partnerId}&userId={userId}&coupon={coupon}_method=put]
+## request: обновление свойств ранее созданного запроса [/request/{id}?dateStart={dateStart}&dateEnd={dateEnd}&insuredDays={insuredDays}&currency={currency}&country%5B%5D={country}&{FullService}&tourist%5B{tourist_id}%5D%5BfirstName%5D={tourist_firstName}&tourist%5B{tourist_id}%5D%5BlastName%5D={tourist_lastName}&tourist%5B{tourist_id}%5D%5Bhidden%5D={tourist_hidden}&tourist%5B{tourist_id}%5D%5Bbirthday%5D={tourist_birthday}&tourist%5B{tourist_id}%5D%5Bage%5D={tourist_age}&insurer%5Bname%5D={insurer_name}&insurer%5BlastName%5D={insurer_lastName}&insurer%5BsecondName%5D={insurer_secondName}&insurer%5BnameRU%5D={insurer_nameRU}&insurer%5BlastNameRU%5D={insurer_lastNameRU}&insurer%5BsecondNameRU%5D={insurer_secondNameRU}&insurer%5Bphone%5D={insurer_phone}&insurer%5Bemail%5D={insurer_email}&insuranceProduct%5B%5D={insuranceProduct}&paymentSystem={paymentSystem}&key={key}&marker={marker}&partnerId={partnerId}&userId={userId}&coupon={coupon}&_method=put]
 
 + Parameters
     + id: `2093` (optional, number) - id запроса партнера (например 2093), рекомендуется выполнить предыдущий запрос "создание нового запроса" и взять значение id из результатов
@@ -3369,7 +3369,7 @@ HOST: http://api.staging.cherehapa.ru/v2
             }
 
 
-## request: удаляет запрос [/request/{id}?key={key}&_method=delete]
+## ERROR 500 "Integrity constraint violation: 1451" request: удаляет запрос [/request/{id}?key={key}&_method=delete]
 
 + Parameters
     + id: `2093` (optional, number) - id запроса партнера (например 2093), рекомендуется выполнить предыдущий запрос "создание нового запроса" и взять значение id из результатов
