@@ -3197,7 +3197,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
             
-## request: создание нового запроса [/request?currency={currency}&dateStart={dateStart}&dateEnd={dateEnd}&insuredDays={insuredDays}&country%5B%5D={country}&{FullService}&tourist%5B{tourist_id}%5D%5BfirstName%5D={tourist_firstName}&tourist%5B{tourist_id}%5D%5BlastName%5D={tourist_lastName}&tourist%5B{tourist_id}%5D%5Bhidden%5D={tourist_hidden}&tourist%5B{tourist_id}%5D%5Bbirthday%5D={tourist_birthday}&tourist%5B{tourist_id}%5D%5Bage%5D={tourist_age}&insurer%5Bphone%5D={insurer_phone}&insurer%5Bemail%5D={insurer_email}&insurer%5Bname%5D={insurer_name}&insurer%5BsecondName%5D={insurer_secondName}&insurer%5BlastName%5D={insurer_lastName}&insurer%5BnameRU%5D={insurer_nameRU}&insurer%5BsecondNameRU%5D={insurer_secondNameRU}&insurer%5BlastNameRU%5D:{insurer_lastNameRU}&insuranceProduct%5B%5D={insuranceProduct}&paymentSystem={paymentSystem}&key={key}&marker={marker}&partnerId={partnerId}&userId={userId}&coupon={coupon}&_method=post]
+## request: создание нового запроса [/request?currency={currency}&dateStart={dateStart}&dateEnd={dateEnd}&insuredDays={insuredDays}&country%5B%5D={country}&{FullService}&tourist%5B{tourist_id}%5D%5BfirstName%5D={tourist_firstName}&tourist%5B{tourist_id}%5D%5BlastName%5D={tourist_lastName}&tourist%5B{tourist_id}%5D%5Bhidden%5D={tourist_hidden}&tourist%5B{tourist_id}%5D%5Bbirthday%5D={tourist_birthday}&tourist%5B{tourist_id}%5D%5Bage%5D={tourist_age}&insurer%5Bphone%5D={insurer_phone}&insurer%5Bemail%5D={insurer.email}&insurer%5Bname%5D={insurer_name}&insurer%5BsecondName%5D={insurer_secondName}&insurer%5BlastName%5D={insurer_lastName}&insurer%5BnameRU%5D={insurer_nameRU}&insurer%5BsecondNameRU%5D={insurer_secondNameRU}&insurer%5BlastNameRU%5D:{insurer_lastNameRU}&insuranceProduct%5B%5D={insuranceProduct}&paymentSystem={paymentSystem}&key={key}&marker={marker}&partnerId={partnerId}&userId={userId}&coupon={coupon}&_method=post]
 
 + Parameters
     + dateStart: `24.12.2015` (required, string)  - дата начала поездки (dd.mm.yyyy)
@@ -3212,7 +3212,7 @@ HOST: http://api.staging.cherehapa.ru/v2
     + tourist_hidden:  `0` (required, number) - скрыть ли информацию о туристе из личного кабинета покупателя (1=да, 0=нет)
     + tourist_birthday: `24.12.1983` (required, string)  - дата рождения туриста (dd.mm.yyyy)
     + tourist_age: `32` (optional, number) - возраст туриста (можно указывать, когда не известна точная дата рождения)
-    + insurer_email: `torvlandor@mailinator.com` (required, string) - e-mail страхователя (например torvlandor@mailinator.com)
+    + insurer.email: `torvlandor@mailinator.com` (required, string) - e-mail страхователя (например torvlandor@mailinator.com)
     + insurer_phone: `79261234567` (optional, string) телефон страхователя в международном формате, без + (то есть 79261234567)
     + insurer_name: `Torvlandor`  (optional, string)  - имя страхователя ЛАТИНИЦЕЙ, если не турист (например Torvlandor)
     + insurer_secondName: `Evlampiy`  (optional, string)  - отчество страхователя ЛАТИНИЦЕЙ, если не турист (например Alexandrovich)
