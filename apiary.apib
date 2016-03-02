@@ -3197,7 +3197,7 @@ HOST: http://api.staging.cherehapa.ru/v2
               }
             }
             
-## request: создание нового запроса [/request?currency={currency}&dateStart={dateStart}&dateEnd={dateEnd}&insuredDays={insuredDays}&country%5B%5D={country}&{FullService}&tourist%5B{tourist_id}%5D%5BfirstName%5D={tourist_firstName}&tourist%5B{tourist_id}%5D%5BlastName%5D={tourist_lastName}&tourist%5B{tourist_id}%5D%5Bhidden%5D={tourist_hidden}&tourist%5B{tourist_id}%5D%5Bbirthday%5D={tourist_birthday}&tourist%5B{tourist_id}%5D%5Bage%5D={tourist_age}&insurer%5Bphone%5D={insurer_phone}&insurer%5Bemail%5D={insurer.email}&insurer%5Bname%5D={insurer_name}&insurer%5BsecondName%5D={insurer_secondName}&insurer%5BlastName%5D={insurer_lastName}&insurer%5BnameRU%5D={insurer_nameRU}&insurer%5BsecondNameRU%5D={insurer_secondNameRU}&insurer%5BlastNameRU%5D:{insurer_lastNameRU}&insuranceProduct%5B%5D={insuranceProduct}&paymentSystem={paymentSystem}&key={key}&marker={marker}&partnerId={partnerId}&userId={userId}&coupon={coupon}&_method=post]
+## request: создание нового запроса [/request?currency={currency}&dateStart={dateStart}&dateEnd={dateEnd}&insuredDays={insuredDays}&country%5B%5D={country}&{FullService}&tourist%5B{tourist.id}%5D%5BfirstName%5D={tourist.firstName}&tourist%5B{tourist.id}%5D%5BlastName%5D={tourist.lastName}&tourist%5B{tourist.id}%5D%5Bhidden%5D={tourist.hidden}&tourist%5B{tourist.id}%5D%5Bbirthday%5D={tourist.birthday}&tourist%5B{tourist.id}%5D%5Bage%5D={tourist.age}&insurer%5Bphone%5D={insurer.phone}&insurer%5Bemail%5D={insurer.email}&insurer%5Bname%5D={insurer.name}&insurer%5BsecondName%5D={insurer.secondName}&insurer%5BlastName%5D={insurer.lastName}&insurer%5BnameRU%5D={insurer.nameRU}&insurer%5BsecondNameRU%5D={insurer.secondNameRU}&insurer%5BlastNameRU%5D:{insurer.lastNameRU}&insuranceProduct%5B%5D={insuranceProduct}&paymentSystem={paymentSystem}&key={key}&marker={marker}&partnerId={partnerId}&userId={userId}&coupon={coupon}&_method=post]
 
 + Parameters
     + dateStart: `24.12.2015` (required, string)  - дата начала поездки (dd.mm.yyyy)
@@ -3206,20 +3206,20 @@ HOST: http://api.staging.cherehapa.ru/v2
     + currency: `eur` (optional, string) - код валюты страхования (USD, EUR, RUB, по-умолчанию - USD)
     + country: `italy` (required, string) - код или id одной или нескольких стран путешествия (количество не ограниченно)
     + FullService: `service%5Bmedicine%5D=30000&service%5BurgentStomatology%5D=1&service%5Babroad%5D=1` (required, string) - коды и значения страховых сумм поивыбранным услугам (service[medicine]=30000&service[legal]=1)
-    + tourist_id: `0` (required, string) - массив данных о туристе с указанным id (начинается с 0)
-    + tourist_lastName: `Bzhezinskiy` (required, string) - фамилия туриста ЛАТИНИЦЕЙ
-    + tourist_firstName: `Torvlandor` (required, string) - имя туриста ЛАТИНИЦЕЙ
-    + tourist_hidden:  `0` (required, number) - скрыть ли информацию о туристе из личного кабинета покупателя (1=да, 0=нет)
-    + tourist_birthday: `24.12.1983` (required, string)  - дата рождения туриста (dd.mm.yyyy)
-    + tourist_age: `32` (optional, number) - возраст туриста (можно указывать, когда не известна точная дата рождения)
+    + tourist.id: `0` (required, string) - массив данных о туристе с указанным id (начинается с 0)
+    + tourist.lastName: `Bzhezinskiy` (required, string) - фамилия туриста ЛАТИНИЦЕЙ
+    + tourist.firstName: `Torvlandor` (required, string) - имя туриста ЛАТИНИЦЕЙ
+    + tourist.hidden:  `0` (required, number) - скрыть ли информацию о туристе из личного кабинета покупателя (1=да, 0=нет)
+    + tourist.birthday: `24.12.1983` (required, string)  - дата рождения туриста (dd.mm.yyyy)
+    + tourist.age: `32` (optional, number) - возраст туриста (можно указывать, когда не известна точная дата рождения)
     + insurer.email: `torvlandor@mailinator.com` (required, string) - e-mail страхователя (например torvlandor@mailinator.com)
-    + insurer_phone: `79261234567` (optional, string) телефон страхователя в международном формате, без + (то есть 79261234567)
-    + insurer_name: `Torvlandor`  (optional, string)  - имя страхователя ЛАТИНИЦЕЙ, если не турист (например Torvlandor)
-    + insurer_secondName: `Evlampiy`  (optional, string)  - отчество страхователя ЛАТИНИЦЕЙ, если не турист (например Alexandrovich)
-    + insurer_lastName: `Bzhezinskiy`  (optional, string) - фамилия страхователя ЛАТИНИЦЕЙ, если не турист (например Bzhezinskiy)
-    + insurer_nameRU: `Торвландор` (required, string) - имя страхователя КИРИЛЛИЦЕЙ 
-    + insurer_secondNameRU: `Бимульдинович` (required, string) - отчество страхователя КИРИЛЛИЦЕЙ 
-    + insurer_lastNameRU: `Бжезинский` (required, string) - отчество страхователя КИРИЛЛИЦЕЙ 
+    + insurer.phone: `79261234567` (optional, string) телефон страхователя в международном формате, без + (то есть 79261234567)
+    + insurer.name: `Torvlandor`  (optional, string)  - имя страхователя ЛАТИНИЦЕЙ, если не турист (например Torvlandor)
+    + insurer.secondName: `Evlampiy`  (optional, string)  - отчество страхователя ЛАТИНИЦЕЙ, если не турист (например Alexandrovich)
+    + insurer.lastName: `Bzhezinskiy`  (optional, string) - фамилия страхователя ЛАТИНИЦЕЙ, если не турист (например Bzhezinskiy)
+    + insurer.nameRU: `Торвландор` (required, string) - имя страхователя КИРИЛЛИЦЕЙ 
+    + insurer.secondNameRU: `Бимульдинович` (required, string) - отчество страхователя КИРИЛЛИЦЕЙ 
+    + insurer.lastNameRU: `Бжезинский` (required, string) - отчество страхователя КИРИЛЛИЦЕЙ 
     + insuranceProduct: `195` (required, string) - массив кодов страховых продуктов (1, 57)
     + paymentSystem: `7` (optional, string) - код платежной системы (для безналичной оплаты paymentSystem=7)
     + marker: `123qwe` (required, string) - маркер партнера, это произвольная строка, которая потом будет привязана к заказу и появится в отчете о продажах. Может использоваться для статистических целей, субаффилиатских прогамм, аналитики
@@ -3280,7 +3280,7 @@ HOST: http://api.staging.cherehapa.ru/v2
                   ]
             }
             
-##  API call failed request: обновление свойств ранее созданного запроса [/request/{id}?currency={currency}&dateStart={dateStart}&dateEnd={dateEnd}&insuredDays={insuredDays}&country%5B%5D={country}&service%5Bmedicine%5D={service_medicine}&service%5BaviaCargo%5D={service_aviaCargo}&service%5Baccident%5D={service_accinent}&service%5BcivilLiability%5D={service_civilLiability}&service%5BurgentStomatology%5D={service_urgentStomatology}&service%5Bcargo%5D={service_cargo}&tourist%5B{tourist_id}%5D%5BfirstName%5D={tourist_firstName}&tourist%5B{tourist_id}%5D%5BlastName%5D={tourist_lastName}&tourist%5B{tourist_id}%5D%5Bhidden%5D={tourist_hidden}&tourist%5B{tourist_id}%5D%5Bbirthday%5D={tourist_birthday}&tourist%5B{tourist_id}%5D%5Bage%5D={tourist_age}&insurer%5Bname%5D={insurer_name}&insurer%5BlastName%5D={insurer_lastName}&insurer%5BsecondName%5D={insurer_secondName}&insurer%5BnameRU%5D={insurer_nameRU}&insurer%5BlastNameRU%5D={insurer_lastNameRU}&insurer%5BsecondNameRU%5D={insurer_secondNameRU}&insurer%5Bphone%5D={insurer_phone}&insurer%5Bemail%5D={insurer_email}&insuranceProduct%5B%5D={insuranceProduct}&paymentSystem={paymentSystem}&key={key}&marker={marker}&partnerId={partnerId}&userId={userId}&coupon={coupon}&_method=put]
+##  API call failed request: обновление свойств ранее созданного запроса [/request/{id}?currency={currency}&dateStart={dateStart}&dateEnd={dateEnd}&insuredDays={insuredDays}&country%5B%5D={country}&service%5Bmedicine%5D={service.medicine}&service%5BaviaCargo%5D={service.aviaCargo}&service%5Baccident%5D={service.accinent}&service%5BcivilLiability%5D={service.civilLiability}&service%5BurgentStomatology%5D={service.urgentStomatology}&service%5Bcargo%5D={service.cargo}&tourist%5B{tourist.id}%5D%5BfirstName%5D={tourist.firstName}&tourist%5B{tourist.id}%5D%5BlastName%5D={tourist.lastName}&tourist%5B{tourist.id}%5D%5Bhidden%5D={tourist.hidden}&tourist%5B{tourist.id}%5D%5Bbirthday%5D={tourist.birthday}&tourist%5B{tourist.id}%5D%5Bage%5D={tourist.age}&insurer%5Bname%5D={insurer.name}&insurer%5BlastName%5D={insurer.lastName}&insurer%5BsecondName%5D={insurer.secondName}&insurer%5BnameRU%5D={insurer.nameRU}&insurer%5BlastNameRU%5D={insurer.lastNameRU}&insurer%5BsecondNameRU%5D={insurer.secondNameRU}&insurer%5Bphone%5D={insurer.phone}&insurer%5Bemail%5D={insurer.email}&insuranceProduct%5B%5D={insuranceProduct}&paymentSystem={paymentSystem}&key={key}&marker={marker}&partnerId={partnerId}&userId={userId}&coupon={coupon}&_method=put]
 
 + Parameters
     + id: `2093` (optional, number) - id запроса партнера (например 2093), рекомендуется выполнить предыдущий запрос "создание нового запроса" и взять значение id из результатов
@@ -3289,26 +3289,26 @@ HOST: http://api.staging.cherehapa.ru/v2
     + insuredDays: 1 (optional, number) - кол-во дней по страховке (число)
     + currency: `eur` (optional, string) - код валюты страхования (USD, EUR, RUB, по-умолчанию - USD)
     + country: `italy` (required, string) - код или id одной или нескольких стран путешествия (количество не ограниченно)
-    + service_medicine: `30000` (optional, string) - коды и значения страховых сумм по выбранным услугам
-    + service_aviaCargo: `1500` (optional, string) - коды и значения страховых сумм по выбранным услугам
-    + service_urgentStomatology: `1` (optional, string) - коды и значения страховых сумм по выбранным услугам
-    + service_accinent: `0` (optional, string) - коды и значения страховых сумм по выбранным услугам
-    + service_civilLiability: `0` (optional, string) - коды и значения страховых сумм по выбранным услугам
-    + service_cargo: `1500` (optional, string) - коды и значения страховых сумм по выбранным услугам
-    + tourist_id: `0` (required, string) - массив данных о туристе с указанным id (начинается с 0)
-    + tourist_lastName: `Bzhezinskiy` (required, string) - фамилия туриста ЛАТИНИЦЕЙ
-    + tourist_firstName: `Torvlandor` (required, string) - имя туриста ЛАТИНИЦЕЙ
-    + tourist_birthday: `24.12.1983` (required, string)  - дата рождения туриста (dd.mm.yyyy)
-    + tourist_age: `32` (optional, string) - возраст туриста (можно указывать, когда не известна точная дата рождения)
-    + tourist_hidden:  `0` (required, string) - скрыть ли информацию о туристе из личного кабинета покупателя (1=да, 0=нет)
-    + insurer_phone: `79261234567` (optional, string) телефон страхователя в международном формате, без + (то есть 79261234567)
-    + insurer_email: `torvlandor@mailinator.com` (required, string) - e-mail страхователя (например torvlandor@mailinator.com)
-    + insurer_name: `Torvlandor`  (optional, string)  - имя страхователя ЛАТИНИЦЕЙ, если не турист (например Torvlandor)
-    + insurer_secondName: `Alexandrovich`  (optional, string)  - отчество страхователя ЛАТИНИЦЕЙ, если не турист (например Alexandrovich)
-    + insurer_lastName: `Bzhezinskiy`  (optional, string) - фамилия страхователя ЛАТИНИЦЕЙ, если не турист (например Bzhezinskiy)
-    + insurer_nameRU: `Торвландор` (required, string) - имя страхователя КИРИЛЛИЦЕЙ 
-    + insurer_secondNameRU: `Бимульдинович` (required, string) - отчество страхователя КИРИЛЛИЦЕЙ 
-    + insurer_lastNameRU: `Бжезинский` (required, string) - отчество страхователя КИРИЛЛИЦЕЙ 
+    + service.medicine: `30000` (optional, string) - коды и значения страховых сумм по выбранным услугам
+    + service.aviaCargo: `1500` (optional, string) - коды и значения страховых сумм по выбранным услугам
+    + service.urgentStomatology: `1` (optional, string) - коды и значения страховых сумм по выбранным услугам
+    + service.accinent: `0` (optional, string) - коды и значения страховых сумм по выбранным услугам
+    + service.civilLiability: `0` (optional, string) - коды и значения страховых сумм по выбранным услугам
+    + service.cargo: `1500` (optional, string) - коды и значения страховых сумм по выбранным услугам
+    + tourist.id: `0` (required, string) - массив данных о туристе с указанным id (начинается с 0)
+    + tourist.lastName: `Bzhezinskiy` (required, string) - фамилия туриста ЛАТИНИЦЕЙ
+    + tourist.firstName: `Torvlandor` (required, string) - имя туриста ЛАТИНИЦЕЙ
+    + tourist.birthday: `24.12.1983` (required, string)  - дата рождения туриста (dd.mm.yyyy)
+    + tourist.age: `32` (optional, string) - возраст туриста (можно указывать, когда не известна точная дата рождения)
+    + tourist.hidden:  `0` (required, string) - скрыть ли информацию о туристе из личного кабинета покупателя (1=да, 0=нет)
+    + insurer.phone: `79261234567` (optional, string) телефон страхователя в международном формате, без + (то есть 79261234567)
+    + insurer.email: `torvlandor@mailinator.com` (required, string) - e-mail страхователя (например torvlandor@mailinator.com)
+    + insurer.name: `Torvlandor`  (optional, string)  - имя страхователя ЛАТИНИЦЕЙ, если не турист (например Torvlandor)
+    + insurer.secondName: `Alexandrovich`  (optional, string)  - отчество страхователя ЛАТИНИЦЕЙ, если не турист (например Alexandrovich)
+    + insurer.lastName: `Bzhezinskiy`  (optional, string) - фамилия страхователя ЛАТИНИЦЕЙ, если не турист (например Bzhezinskiy)
+    + insurer.nameRU: `Торвландор` (required, string) - имя страхователя КИРИЛЛИЦЕЙ 
+    + insurer.secondNameRU: `Бимульдинович` (required, string) - отчество страхователя КИРИЛЛИЦЕЙ 
+    + insurer.lastNameRU: `Бжезинский` (required, string) - отчество страхователя КИРИЛЛИЦЕЙ 
     + insuranceProduct: `195` (required, string) - массив кодов страховых продуктов (1, 57)
     + paymentSystem: `7` (optional, string) - код платежной системы (для безналичной оплаты paymentSystem=7)
     + key: yI99Kone4QHOuaPqmgpp7WoTmW0cDs (required, string) - Ключ доступа (служит для авторизации, при изменении перестает работать)
@@ -3374,7 +3374,7 @@ HOST: http://api.staging.cherehapa.ru/v2
             }
 
 
-## ERROR 500 "Integrity constraint violation: 1451" request: удаляет запрос [/request/{id}?key={key}&_method=delete]
+## request: удаляет запрос [/request/{id}?key={key}&_method=delete]
 
 + Parameters
     + id: `2093` (optional, number) - id запроса партнера (например 2093), рекомендуется выполнить предыдущий запрос "создание нового запроса" и взять значение id из результатов
