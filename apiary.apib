@@ -527,24 +527,24 @@ HOST: http://sandbox.cherehapa.ru/v2/
 Выводится список страховых продуктов, доступных партнеру. В примере дана только первая запись из всего списка. Для получения всего списка, выполните запрос. ВНИМАНИЕ полный запрос выполняется ОЧЕНЬ ДОЛГО (от 1 до нескольких минут). Рекомендуется выполнять запрос с фильтром.
 + Response 200 (application/json)
 
-{
-    "status": 200,
-    "insuranceProduct": [
-        {
-            "id": 1,
-            "code": "B",
-            "name": "Стандарт Плюс",
-            "isLimited": 0,
-            "expertRaiting": 0,
-            "isFixed": 0,
-            "serviceStrategy": 3,
-            "touristsInPolicy": 10,
-            "company": {
-                "id": 1,
-                "code": "erv",
-                "name": "ERV",
-                "url": "http://www.erv.ru/"
-            },
+         {
+             "status": 200,
+             "insuranceProduct": [
+                 {
+                     "id": 1,
+                     "code": "B",
+                     "name": "Стандарт Плюс",
+                     "isLimited": 0,
+                     "expertRaiting": 0,
+                     "isFixed": 0,
+                     "serviceStrategy": 3,
+                     "touristsInPolicy": 10,
+                     "company": {
+                         "id": 1,
+                         "code": "erv",
+                         "name": "ERV",
+                         "url": "http://www.erv.ru/"
+                     },
             "insuranceSubProduct": [
                 {
                     "id": 3,
@@ -31367,8 +31367,8 @@ HOST: http://sandbox.cherehapa.ru/v2/
                 }
             ]
         }
-    ]
-}
+        ]
+        }
 
 
 ## insuranceProduct: подробная информация о страховом продукте по id [/insuranceProduct/{id}?key={key}]
@@ -32994,7 +32994,9 @@ HOST: http://sandbox.cherehapa.ru/v2/
 
 ### Метод: DELETE /request [DELETE]
 
-Удаляет запрос по его id
+Удаляет запрос по его id . Метод не возвращает body.
 
 + Response 204 (application/json)
+
+        {}
 
