@@ -72,7 +72,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /country/id [GET]
 
 Выводится информация о выбранной стране
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
               "status": 200,
@@ -100,7 +100,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /countryGroup [GET]
 
 Выводится информация обо всех группах стран. ВНИМАНИЕ полный запрос выполняется ОЧЕНЬ ДОЛГО (от 1 до нескольких минут). В примере дан сильно усеченный пример вывода. Рекомендуется выполнять запрос с фильтром.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
               "status": 200,
@@ -153,7 +153,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /countryGroup/id [GET]
 
 Выводится информация о выбранной группе стран, в примере вывод ограничен первыми 6-ю странами из списка "Европа", для получения полного списка - выполните запрос с id=3.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
               "status": 200,
@@ -205,7 +205,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /company [GET]
 
 Выводится список страховых компаний, доступных партнеру. В примере показаны только 3 компании, для того, чтобы увидеть весь список - выполните запрос.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
               "status": 200,
@@ -291,7 +291,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /company/id [GET]
 
 Выводится подробная информация о страховой компании по id (только одной) из всего списка
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
               "status": 200,
@@ -328,7 +328,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /service [GET]
 
 Выводится список страховых услуг, доступных партнеру. В примере приведена только запись с id=1, для получения всего списка - выполните запрос.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
               "status": 200,
