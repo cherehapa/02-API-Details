@@ -21,7 +21,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /country [GET]
 
 Выводится полный список стран (в примере показано только 3 страны, полный список можно увидеть выполнив запрос)
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
                 "status": 200,
@@ -382,7 +382,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /service/id [GET]
 
 Выводится подробная информация о страховой услуге по id. Для получения информации по различным услугам - выполните запрос с различным id.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
              "status": 200,
@@ -412,7 +412,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /serviceGroup [GET]
 
 Выводится cписок групп страховых услуг, доступных партнеру. В примере приведены только 2 записи из всего списка. Выполните запрос, для получения всего списка.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
              "status": 200,
@@ -444,7 +444,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /serviceGroup/id [GET]
 
 Выводится подробная информация о группе страховых услуг по id.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
              "status": 200,
@@ -466,7 +466,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /sport [GET]
 
 Выводится список видов спорта. В примере даны только первые 3 записи списка. Для получения всего списка, выполните запрос.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
              "status": 200,
@@ -504,7 +504,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /sport [GET]
 
 Выводится список видов спорта. В примере даны только первые 3 записи списка. Для получения всего списка, выполните запрос.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
              "status": 200,
@@ -525,7 +525,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /insuranceProduct [GET]
 
 Выводится список страховых продуктов, доступных партнеру. ВНИМАНИЕ полный запрос выполняется ОЧЕНЬ ДОЛГО (от 1 до нескольких минут). Рекомендуется выполнять запрос с фильтром.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
         "status": 200,
@@ -1816,7 +1816,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /insuranceProduct/id [GET]
 
 Выводится подробная информация о страховом продукте по id. ВНИМАНИЕ приведенный пример ответа системы очень обширный.
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
             {
              "status": 200,
