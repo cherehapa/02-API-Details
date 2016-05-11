@@ -104,7 +104,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
 
             {
               "status": 200,
-              "countryGroup": {
+              "countryGroup": [ {
                 "id": 3,
                 "code": "europe",
                 "name": "Страны Европы",
@@ -141,7 +141,45 @@ HOST: http://sandbox.cherehapa.ru/v2/
                     "code": "bulgaria",
                     "name": "Болгария"
                   }        ]
-                             }
+              },
+              {
+              "id": 6,
+              "code": "south_america",
+              "name": "Страны Южной Америки",
+              "companyId": null,
+              "isPublic": 0,
+              "country": [
+                {
+                    "id": 36,
+                    "code": "argentina",
+                    "name": "Аргентина"
+                },
+                {
+                    "id": 75,
+                    "code": "bolivia",
+                    "name": "Боливия"
+                },
+                {
+                    "id": 84,
+                    "code": "brazil",
+                    "name": "Бразилия"
+                },
+                {
+                    "id": 105,
+                    "code": "venezuela",
+                    "name": "Венесуэла"
+                },
+                {
+                    "id": 117,
+                    "code": "guyana",
+                    "name": "Гайана"
+                },
+                {
+                    "id": 132,
+                    "code": "guiana",
+                    "name": "Гвиана"
+                }
+              }
             }
 
 ## countryGroup: подробные данные группы стран по id [/countryGroup/{id}?key={key}]
