@@ -311,7 +311,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
                            "items":"object", "properties":{
                             "id": {"type":"number"},
                             "code": {"type":"string"},
-                            "isBlocked":{"type":"number"},
+                            "isBlocked":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
                             "name":{"type":"string"},
                             "url":{"type":"string","format":"uri"},
                             "logo":{"type":"string","pattern": "^//"},
