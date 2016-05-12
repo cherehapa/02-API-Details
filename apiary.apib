@@ -248,79 +248,93 @@ HOST: http://sandbox.cherehapa.ru/v2/
 + Response 200 (application/json; charset=utf-8)
 
             {
-              "status": 200,
-              "company": [
-                     {
-                      "id": 51,
-                      "code": "soglasie",
-                      "isBlocked": 0,
-                      "name": "Согласие",
-                      "url": "http://www.soglasie.ru/",
-                      "logo": "//static.staging.cherehapa.ru/i/latest/logo/155x56/soglasie.png",
-                      "whiteLogo": null,
-                      "color": "#e87932",
-                      "insuranceRules": "//static.staging.cherehapa.ru/d/latest/rules/soglasie.pdf",
-                      "insuranceHospitals": null,
-                      "cancelEmail": "ap@tsys.pw",
-                      "useLocalName": 0,
-                      "usePassport": 0,
-                      "childAge": null,
-                      "agentsFee": 30,
-                      "roundType": 0,
-                      "processType": null,
-                      "recommendationText": "",
-                      "maxAge": 85,
-                      "useFullSports": 0,
-                      "additionalClasses": null
-                    },
-                    {
-                      "id": 52,
-                      "code": "rstandart",
-                      "isBlocked": 0,
-                      "name": "Русский Стандарт",
-                      "url": "http://www.rsins.ru/",
-                      "logo": "//static.staging.cherehapa.ru/i/latest/logo/155x56/rsins.png",
-                      "whiteLogo": null,
-                      "color": "#8f0a0a",
-                      "insuranceRules": "//static.staging.cherehapa.ru/d/latest/rules/rs.pdf",
-                      "insuranceHospitals": null,
-                      "cancelEmail": "ap@tsys.pw",
-                      "useLocalName": 1,
-                      "usePassport": 0,
-                      "childAge": null,
-                      "agentsFee": 30,
-                      "roundType": 0,
-                      "processType": null,
-                      "recommendationText": "",
-                      "maxAge": 80,
-                      "useFullSports": 0,
-                      "additionalClasses": null
-                    },
-                    {
-                      "id": 54,
-                      "code": "uralsib",
-                      "isBlocked": 1,
-                      "name": "Уралсиб",
-                      "url": "http://www.uralsibins.ru/",
-                      "logo": "//static.staging.cherehapa.ru/i/latest/logo/155x56/uralsib.png",
-                      "whiteLogo": null,
-                      "color": "#52ac56",
-                      "insuranceRules": null,
-                      "insuranceHospitals": null,
-                      "cancelEmail": "ap@tsys.pw",
-                      "useLocalName": 0,
-                      "usePassport": 0,
-                      "childAge": null,
-                      "agentsFee": 30,
-                      "roundType": 0,
-                      "processType": null,
-                      "recommendationText": "",
-                      "maxAge": 0,
-                      "useFullSports": 0,
-                      "additionalClasses": null
-                    }
-                        ]
-           }
+             "status": 200,
+             "company": [
+                  { "id": 1,
+                    "code": "erv",
+                    "isBlocked": 0,
+                    "name": "ERV",
+                    "url": "http://www.erv.ru/",
+                    "logo": "//d2j2dl4huu79en.cloudfront.net/i/latest/logo/155x56/erv.png",
+                    "whiteLogo": null,
+                    "color": "#beb400",
+                    "insuranceRules": "//d2j2dl4huu79en.cloudfront.net/d/latest/rules/erv.zip",
+                    "insuranceHospitals": null,
+                    "useLocalName": 0,
+                    "useInsurerBirthday": 0,
+                    "usePassport": 0,
+                    "maxAge": 130,
+                    "additionalClasses": null
+                   },
+                   {
+                    "id": 23,
+                    "code": "alfa",
+                    "isBlocked": 0,
+                    "name": "АльфаСтрахование",
+                    "url": "http://www.alfastrah.ru/",
+                    "logo": "//d2j2dl4huu79en.cloudfront.net/i/latest/logo/155x56/alfa.png",
+                    "whiteLogo": null,
+                    "color": "#ef3124",
+                    "insuranceRules": "//d2j2dl4huu79en.cloudfront.net/d/latest/rules/alfa.zip",
+                    "insuranceHospitals": null,
+                    "useLocalName": 0,
+                    "useInsurerBirthday": 0,
+                    "usePassport": 0,
+                    "maxAge": 120,
+                    "additionalClasses": null
+                   },
+                   {
+                    "id": 26,
+                    "code": "rgs",
+                    "isBlocked": 0,
+                    "name": "Росгосстрах",
+                    "url": "http://www.rgs.ru/",
+                    "logo": "//d2j2dl4huu79en.cloudfront.net/i/latest/logo/155x56/rgs.png",
+                    "whiteLogo": null,
+                    "color": "#9d0917",
+                    "insuranceRules": "//d2j2dl4huu79en.cloudfront.net/d/latest/rules/rgs.zip",
+                    "insuranceHospitals": null,
+                    "useLocalName": 0,
+                    "useInsurerBirthday": 0,
+                    "usePassport": 0,
+                    "maxAge": 74,
+                    "additionalClasses": null
+                   }    ]
+            }
+
+    + Schema
+
+            { "type":"object",
+              "properties": {
+              "status": {"type":"number"},
+              "company": { "type":"array",
+                           "items":"object", "properties":{
+                            "id": {"type":"number"},
+                            "code": {"type":"string"},
+                            "isBlocked":{"type":"number"},
+                            "name":{"type":"string"},
+                            "url":{"type":"string","format":"uri"},
+                            "logo":{"type":"string","pattern": "^//"},
+                            "whiteLogo":{"type":["string","null"]},
+                            "color":{"type":"string","pattern":"^#"},
+                            "insuranceRules":{"anyOf": [ {"type":"string","pattern": "^//"},{"type":"null"} ]},
+                            "insuranceHospitals":{"type":["string","null"]},
+                            "useLocalName":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                            "useInsurerBirthday":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                            "usePassport":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                            "maxAge":{"type":"number","minimum": 0,"maximum": 200,"exclusiveMaximum": false}
+                            },
+                            "additionalClasses":{"type":["string","null"]}
+                            },"required":["id", "code","isBlocked","name","logo","color",
+                                           "insuranceRules","insuranceHospitals","useLocalName",
+                                           "useInsurerBirthday","usePassport","maxAge","additionalClasses"
+                                         ]
+                         } 
+              }
+            }
+#FIXME: в Schema значения для "insuranceHospitals" и "whiteLogo" должны иметь такой же паттерн проверки, что и для "insuranceRules", пока остается так, 
+#       поскольку в базе ещё не везде под эту схему исправлено.
+
 
 ## company: подробная информацию о компании по id [/company/{id}?key={key}]
 
