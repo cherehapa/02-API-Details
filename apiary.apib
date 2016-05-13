@@ -1901,1242 +1901,488 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
 ### Метод: GET /insuranceProduct/id [GET]
 
 Выводится подробная информация о страховом продукте по id. ВНИМАНИЕ приведенный пример ответа системы очень обширный.
+
+FIXME: поле "multiplierType":"null", из "calcRulesGroup" в ответе на GET /insuranceProduct/id будет удалено.
+
 + Response 200 (application/json; charset=utf-8)
 
+        {
+        "status": 200,
+        "insuranceProduct": {
+        "id": 1,
+        "code": "B",
+        "name": "Стандарт Плюс",
+        "isLimited": 0,
+        "isFixed": 0,
+        "company": {
+        "id": 1,
+        "code": "erv",
+        "name": "ERV",
+        "url": "http://www.erv.ru/"
+        },
+        "insuranceSubProduct": [
+        {
+        "id": 3,
+        "name": "Стандарт Плюс T-II 50000, 100000",
+        "isActive": 1,
+        "useRulesGroup": [
+        [
+        "(data[\"territory\"].indexOf(\"t2\")!=-1 && data.territoriesSuccess.push(\"t2\") || data[\"territory\"].indexOf(\"t4\")!=-1 && data.territoriesSuccess.push(\"t4\"))"
+        ],
+        [
+        "(service[\"medicine\"]>30000)"
+        ],
+        [
+        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+        ],
+        [
+        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+        ],
+        [
+        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+        ],
+        [
+        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+        ],
+        [
+        "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
+        ]
+        ],
+        "calcRulesGroup": [
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "3E4<service.medicine&&(result[1]+=reference.search8(service.medicine,{idCalcRules:110,result:0,serviceId:1})*data.insuredDays);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+        ]
+        }
+        ]
+        },
+        {
+        "id": 6,
+        "name": "Стандарт Плюс T-I 30000, 50000",
+        "isActive": 1,
+        "useRulesGroup": [
+        [
+        "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
+        ],
+        [
+        "(service[\"medicine\"]<100000&&service[\"medicine\"]>30000)"
+        ],
+        [
+        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+        ],
+        [
+        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+        ],
+        [
+        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+        ],
+        [
+        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+        ],
+        [
+        "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
+        ]
+        ],
+        "calcRulesGroup": [
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+        ]
+        }
+        ]
+        },
+        {
+        "id": 9,
+        "name": "Стандарт Плюс T-III 30000",
+        "isActive": 1,
+        "useRulesGroup": [
+        [
+        "(data[\"territory\"].indexOf(\"t3\")!=-1 && data.territoriesSuccess.push(\"t3\"))"
+        ],
+        [
+        "(service[\"medicine\"]==30000)"
+        ],
+        [
+        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+        ],
+        [
+        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+        ],
+        [
+        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+        ],
+        [
+        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+        ],
+        [
+        "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
+        ]
+        ],
+        "calcRulesGroup": [
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "3E4==service.medicine&&(result[1]+=reference.search14(service.medicine,{idCalcRules:122,result:0,serviceId:1})*data.insuredDays);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+        ]
+        }
+        ]
+        },
+        {
+        "id": 741,
+        "name": "Стандарт Плюс T-II 50000, 100000 + Отмена поездки",
+        "isActive": 1,
+        "useRulesGroup": [
+        [
+        "(data[\"territory\"].indexOf(\"t2\")!=-1 && data.territoriesSuccess.push(\"t2\") || data[\"territory\"].indexOf(\"t4\")!=-1 && data.territoriesSuccess.push(\"t4\"))"
+        ],
+        [
+        "(service[\"medicine\"]>30000)"
+        ],
+        [
+        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+        ],
+        [
+        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+        ],
+        [
+        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+        ],
+        [
+        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+        ],
+        [
+        "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
+        ]
+        ],
+        "calcRulesGroup": [
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "3E4<service.medicine&&(result[1]+=reference.search8(service.medicine,{idCalcRules:110,result:0,serviceId:1})*data.insuredDays);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+        ]
+        }
+        ]
+        },
+        {
+        "id": 744,
+        "name": "Стандарт Плюс T-I 30000, 50000 + Отмена поездки",
+        "isActive": 1,
+        "useRulesGroup": [
+        [
+        "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
+        ],
+        [
+        "(service[\"medicine\"]<100000&&service[\"medicine\"]>30000)"
+        ],
+        [
+        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+        ],
+        [
+        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+        ],
+        [
+        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+        ],
+        [
+        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+        ],
+        [
+        "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
+        ]
+        ],
+        "calcRulesGroup": [
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+        ]
+        }
+        ]
+        },
+        {
+        "id": 747,
+        "name": "Стандарт Плюс T-III 30000 + Отмена поездки",
+        "isActive": 1,
+        "useRulesGroup": [
+        [
+        "(data[\"territory\"].indexOf(\"t3\")!=-1 && data.territoriesSuccess.push(\"t3\"))"
+        ],
+        [
+        "(service[\"medicine\"]==30000)"
+        ],
+        [
+        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+        ],
+        [
+        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+        ],
+        [
+        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+        ],
+        [
+        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+        ],
+        [
+        "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
+        ]
+        ],
+        "calcRulesGroup": [
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "3E4==service.medicine&&(result[1]+=reference.search14(service.medicine,{idCalcRules:122,result:0,serviceId:1})*data.insuredDays);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+        ]
+        }
+        ]
+        },
+        {
+        "id": 807,
+        "name": "Стандарт Плюс T-I 30000 Evro",
+        "isActive": 1,
+        "useRulesGroup": [
+        [
+        "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
+        ],
+        [
+        "(service[\"medicine\"]==30000)"
+        ],
+        [
+        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+        ],
+        [
+        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+        ],
+        [
+        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+        ],
+        [
+        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+        ],
+        [
+        "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
+        ]
+        ],
+        "calcRulesGroup": [
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+        ]
+        }
+        ]
+        },
+        {
+        "id": 808,
+        "name": "Стандарт Плюс T-I 30000 Evro + Отмена поездки",
+        "isActive": 1,
+        "useRulesGroup": [
+        [
+        "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
+        ],
+        [
+        "(service[\"medicine\"]==30000)"
+        ],
+        [
+        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+        ],
+        [
+        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+        ],
+        [
+        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+        ],
+        [
+        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+        ],
+        [
+        "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
+        ]
+        ],
+        "calcRulesGroup": [
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+        ]
+        },
+        {
+        "multiplierType": null,
+        "calcRule": [
+        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+        ]
+        }
+        ]
+        }
+        ]
+        }
+        }
+
+            + Schema
             {
-             "status": 200,
-              "insuranceProduct": {
-                "id": 1,
-                "code": "B",
-                "name": "Стандарт Плюс",
-                "isLimited": 0,
-                "expertRaiting": 0,
-                "isFixed": 0,
-                "serviceStrategy": 3,
-                "touristsInPolicy": 10,
-                "company": {
-                  "id": 1,
-                  "code": "erv",
-                  "name": "ERV",
-                  "url": "http://www.erv.ru/",
-                  "color": "#beb400",
-                  "cancelEmail": "ap@tsys.pw",
-                  "useLocalName": 0,
-                  "agentsFee": 30,
-                  "roundType": 0,
-                  "processType": "CreateOrderTwoStep",
-                  "recommendationText": "Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый, разделенный дугообразными чешуйками живот, на верхушке которого еле держалось готовое вот-вот окончательно сползти одеяло. Его многочисленные, убого тонкие",
-                  "maxAge": 130,
-                  "useFullSports": 0,
-                  "additionalClasses": null
-                },
-                "insuranceSubProduct": [
-                  {
-                    "id": 3,
-                    "name": "Стандарт Плюс T-II 50000, 100000",
-                    "service": {
-                      "1": [
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 30000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 50000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 100000
-                        }
-                      ],
-                      "2": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "5": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "8": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "11": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "14": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "17": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "20": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "23": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "26": {
-                        "description": "Организация экстренной стоматологической помощи и оплата расходов в случае острой боли или травмы. У некоторых страховых компаний услуги по экстренной стоматологии входят в тариф по умолчанию, а у некоторых ее можно исключить из страховки, но мы Вам этого не советуем",
-                        "value": 1
-                      },
-                      "29": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "32": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "38": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "41": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "44": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "47": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "50": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "53": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "56": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "59": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "62": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "104": [
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 0
-                        },
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 1
-                        }
-                      ],
-                      "135": {
-                        "description": "Вы можете получить компенсацию при задержке регулярного рейса более чем на 4 часа на покупку вещей первой необходимости: еды, питания, размещения в гостинице.",
-                        "value": 1
-                      },
-                      "138": {
-                        "description": "Страховая компания поможет в оформлении дубликатов и компенсирует расходы на их оформление, если во время поездки документы будут украдены или потеряны (паспорт с визой и билет).",
-                        "value": 1
-                      },
-                      "141": [
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2000
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2500
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 3000
-                        }
-                      ],
-                      "144": [
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 24
-                        }
-                      ],
-                      "153": {
-                        "description": "Если застрахованные туристы не являются гражданами России, то отметьте этот пункт. У некоторых страховых компаний для иностранных граждан действуют специальные тарифы. Страховой полис можно купить для граждан любых государств, но он не будет действовать в стране постоянного проживания/стране гражданства.  ",
-                        "value": 1
-                      },
-                      "161": [
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 1
-                        }
-                      ],
-                      "168": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "174": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "183": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "213": [
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 0
-                        },
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "id": 6,
-                    "name": "Стандарт Плюс T-I 30000, 50000",
-                    "service": {
-                      "1": [
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 30000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 50000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 100000
-                        }
-                      ],
-                      "2": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "5": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "8": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "11": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "14": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "17": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "20": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "23": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "26": {
-                        "description": "Организация экстренной стоматологической помощи и оплата расходов в случае острой боли или травмы. У некоторых страховых компаний услуги по экстренной стоматологии входят в тариф по умолчанию, а у некоторых ее можно исключить из страховки, но мы Вам этого не советуем",
-                        "value": 1
-                      },
-                      "29": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "32": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "38": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "41": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "44": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "47": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "50": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "53": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "56": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "59": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "62": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "104": [
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 0
-                        },
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 1
-                        }
-                      ],
-                      "135": {
-                        "description": "Вы можете получить компенсацию при задержке регулярного рейса более чем на 4 часа на покупку вещей первой необходимости: еды, питания, размещения в гостинице.",
-                        "value": 1
-                      },
-                      "138": {
-                        "description": "Страховая компания поможет в оформлении дубликатов и компенсирует расходы на их оформление, если во время поездки документы будут украдены или потеряны (паспорт с визой и билет).",
-                        "value": 1
-                      },
-                      "141": [
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2000
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2500
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 3000
-                        }
-                      ],
-                      "144": [
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 24
-                        }
-                      ],
-                      "153": {
-                        "description": "Если застрахованные туристы не являются гражданами России, то отметьте этот пункт. У некоторых страховых компаний для иностранных граждан действуют специальные тарифы. Страховой полис можно купить для граждан любых государств, но он не будет действовать в стране постоянного проживания/стране гражданства.  ",
-                        "value": 1
-                      },
-                      "161": [
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 1
-                        }
-                      ],
-                      "168": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "174": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "183": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "213": [
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 0
-                        },
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "id": 9,
-                    "name": "Стандарт Плюс T-III 30000",
-                    "service": {
-                      "1": [
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 30000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 50000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 100000
-                        }
-                      ],
-                      "2": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "5": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "8": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "11": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "14": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "17": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "20": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "23": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "26": {
-                        "description": "Организация экстренной стоматологической помощи и оплата расходов в случае острой боли или травмы. У некоторых страховых компаний услуги по экстренной стоматологии входят в тариф по умолчанию, а у некоторых ее можно исключить из страховки, но мы Вам этого не советуем",
-                        "value": 1
-                      },
-                      "29": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "32": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "38": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "41": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "44": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "47": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "50": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "53": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "56": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "59": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "62": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "104": [
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 0
-                        },
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 1
-                        }
-                      ],
-                      "135": {
-                        "description": "Вы можете получить компенсацию при задержке регулярного рейса более чем на 4 часа на покупку вещей первой необходимости: еды, питания, размещения в гостинице.",
-                        "value": 1
-                      },
-                      "138": {
-                        "description": "Страховая компания поможет в оформлении дубликатов и компенсирует расходы на их оформление, если во время поездки документы будут украдены или потеряны (паспорт с визой и билет).",
-                        "value": 1
-                      },
-                      "141": [
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2000
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2500
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 3000
-                        }
-                      ],
-                      "144": [
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 24
-                        }
-                      ],
-                      "153": {
-                        "description": "Если застрахованные туристы не являются гражданами России, то отметьте этот пункт. У некоторых страховых компаний для иностранных граждан действуют специальные тарифы. Страховой полис можно купить для граждан любых государств, но он не будет действовать в стране постоянного проживания/стране гражданства.  ",
-                        "value": 1
-                      },
-                      "161": [
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 1
-                        }
-                      ],
-                      "168": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "174": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "183": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "213": [
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 0
-                        },
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "id": 741,
-                    "name": "Стандарт Плюс T-II 50000, 100000 + Отмена поездки",
-                    "service": {
-                      "1": [
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 30000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 50000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 100000
-                        }
-                      ],
-                      "2": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "5": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "8": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "11": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "14": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "17": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "20": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "23": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "26": {
-                        "description": "Организация экстренной стоматологической помощи и оплата расходов в случае острой боли или травмы. У некоторых страховых компаний услуги по экстренной стоматологии входят в тариф по умолчанию, а у некоторых ее можно исключить из страховки, но мы Вам этого не советуем",
-                        "value": 1
-                      },
-                      "29": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "32": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "38": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "41": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "44": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "47": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "50": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "53": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "56": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "59": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "62": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "104": [
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 0
-                        },
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 1
-                        }
-                      ],
-                      "121": [
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 1000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 1500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 2000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 2500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 3000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 3500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 4000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 4500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 5000
-                        }
-                      ],
-                      "124": {
-                        "description": "Выбрав эту опцию Вы сможете возместить расходы в том числе из-за отказа во въездной визе.",
-                        "value": 1
-                      },
-                      "135": {
-                        "description": "Вы можете получить компенсацию при задержке регулярного рейса более чем на 4 часа на покупку вещей первой необходимости: еды, питания, размещения в гостинице.",
-                        "value": 1
-                      },
-                      "138": {
-                        "description": "Страховая компания поможет в оформлении дубликатов и компенсирует расходы на их оформление, если во время поездки документы будут украдены или потеряны (паспорт с визой и билет).",
-                        "value": 1
-                      },
-                      "141": [
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2000
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2500
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 3000
-                        }
-                      ],
-                      "144": [
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 24
-                        }
-                      ],
-                      "153": {
-                        "description": "Если застрахованные туристы не являются гражданами России, то отметьте этот пункт. У некоторых страховых компаний для иностранных граждан действуют специальные тарифы. Страховой полис можно купить для граждан любых государств, но он не будет действовать в стране постоянного проживания/стране гражданства.  ",
-                        "value": 1
-                      },
-                      "161": [
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 1
-                        }
-                      ],
-                      "168": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "174": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "183": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "213": [
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 0
-                        },
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "id": 744,
-                    "name": "Стандарт Плюс T-I 30000, 50000 + Отмена поездки",
-                    "service": {
-                      "1": [
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 30000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 50000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 100000
-                        }
-                      ],
-                      "2": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "5": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "8": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "11": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "14": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "17": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "20": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "23": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "26": {
-                        "description": "Организация экстренной стоматологической помощи и оплата расходов в случае острой боли или травмы. У некоторых страховых компаний услуги по экстренной стоматологии входят в тариф по умолчанию, а у некоторых ее можно исключить из страховки, но мы Вам этого не советуем",
-                        "value": 1
-                      },
-                      "29": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "32": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "38": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "41": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "44": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "47": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "50": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "53": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "56": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "59": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "62": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "104": [
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 0
-                        },
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 1
-                        }
-                      ],
-                      "121": [
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 1000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 1500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 2000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 2500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 3000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 3500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 4000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 4500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 5000
-                        }
-                      ],
-                      "124": {
-                        "description": "Выбрав эту опцию Вы сможете возместить расходы в том числе из-за отказа во въездной визе.",
-                        "value": 1
-                      },
-                      "135": {
-                        "description": "Вы можете получить компенсацию при задержке регулярного рейса более чем на 4 часа на покупку вещей первой необходимости: еды, питания, размещения в гостинице.",
-                        "value": 1
-                      },
-                      "138": {
-                        "description": "Страховая компания поможет в оформлении дубликатов и компенсирует расходы на их оформление, если во время поездки документы будут украдены или потеряны (паспорт с визой и билет).",
-                        "value": 1
-                      },
-                      "141": [
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2000
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2500
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 3000
-                        }
-                      ],
-                      "144": [
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 24
-                        }
-                      ],
-                      "153": {
-                        "description": "Если застрахованные туристы не являются гражданами России, то отметьте этот пункт. У некоторых страховых компаний для иностранных граждан действуют специальные тарифы. Страховой полис можно купить для граждан любых государств, но он не будет действовать в стране постоянного проживания/стране гражданства.  ",
-                        "value": 1
-                      },
-                      "161": [
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 1
-                        }
-                      ],
-                      "168": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "174": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "183": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "213": [
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 0
-                        },
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "id": 747,
-                    "name": "Стандарт Плюс T-III 30000 + Отмена поездки",
-                    "service": {
-                      "1": [
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 30000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 50000
-                        },
-                        {
-                          "description": "Страховая компания возьмет на себя оплату расходов по амбулаторному и стационарному лечению в клинике, оплату медикаментов, перевозку заболевшего, а также, в случае необходимости, транспортировку домой. Вы можете увеличить сумму страховки, чтобы она покрывала как можно больше расходов на всякий случай. Минимальная сумма — это лишь требование посольства для получения визы",
-                          "value": 100000
-                        }
-                      ],
-                      "2": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "5": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "8": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "11": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "14": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "17": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "20": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "23": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "26": {
-                        "description": "Организация экстренной стоматологической помощи и оплата расходов в случае острой боли или травмы. У некоторых страховых компаний услуги по экстренной стоматологии входят в тариф по умолчанию, а у некоторых ее можно исключить из страховки, но мы Вам этого не советуем",
-                        "value": 1
-                      },
-                      "29": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "32": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "38": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "41": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "44": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "47": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "50": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "53": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "56": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "59": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "62": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "104": [
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 0
-                        },
-                        {
-                          "description": "После обнаружения места эвакуации оплата расходов на вызов вертолета (если потерпевшего нельзя эвакуировать другим способом)",
-                          "value": 1
-                        }
-                      ],
-                      "121": [
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 1000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 1500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 2000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 2500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 3000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 3500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 4000
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 4500
-                        },
-                        {
-                          "description": "Вы сможете возместить расходы на приобретение авиа и жд билетов, стоимость брони гостиницы, трансфера, консульский сбор и другие расходы в случае отмены поездки из-за болезни, приведшей к госпитализации, или травмы, в т. ч. родственников; повреждения имущества и других рисков. ",
-                          "value": 5000
-                        }
-                      ],
-                      "124": {
-                        "description": "Выбрав эту опцию Вы сможете возместить расходы в том числе из-за отказа во въездной визе.",
-                        "value": 1
-                      },
-                      "135": {
-                        "description": "Вы можете получить компенсацию при задержке регулярного рейса более чем на 4 часа на покупку вещей первой необходимости: еды, питания, размещения в гостинице.",
-                        "value": 1
-                      },
-                      "138": {
-                        "description": "Страховая компания поможет в оформлении дубликатов и компенсирует расходы на их оформление, если во время поездки документы будут украдены или потеряны (паспорт с визой и билет).",
-                        "value": 1
-                      },
-                      "141": [
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2000
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 2500
-                        },
-                        {
-                          "description": "Путешественник, непреднамеренно нарушивший местные законы, может рассчитывать на консультацию юриста за счет страховой компании, в случае судебного преследования. За исключением нарушений, совершенных за рулем автомобиля и уголовных дел.",
-                          "value": 3000
-                        }
-                      ],
-                      "144": [
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть беременная женщина, пометьте, пожалуйста. Мы порекомендуем Вам страховую компанию, где оплачиваются расходы на медицинскую помощь при внезапном осложнении течения беременности. На всякий случай",
-                          "value": 24
-                        }
-                      ],
-                      "153": {
-                        "description": "Если застрахованные туристы не являются гражданами России, то отметьте этот пункт. У некоторых страховых компаний для иностранных граждан действуют специальные тарифы. Страховой полис можно купить для граждан любых государств, но он не будет действовать в стране постоянного проживания/стране гражданства.  ",
-                        "value": 1
-                      },
-                      "161": [
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 0
-                        },
-                        {
-                          "description": "Если среди путешественников есть иностранные граждане или лица без гражданства, пометьте, пожалуйста.",
-                          "value": 1
-                        }
-                      ],
-                      "168": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "174": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "183": {
-                        "description": null,
-                        "value": 1
-                      },
-                      "213": [
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 0
-                        },
-                        {
-                          "description": "Страховая компания оплатит расходы, связанные с поисково-спасательными мероприятиями с целью обнаружения Застрахованного в горах, на море, в пустыне, в джунглях или других удаленных местах",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
+                "type":"object",
+                "properties": {
+                 "status": {"type":"number"},
+                 "insuranceProduct": {"type":"object",
+                                      "required":["id","code","name","isLimited","isFixed","company","insuranceSubProduct"]
+                                      "properties": {"id":"number",
+                                                     "code":"string",
+                                                     "name":"string",
+                                                     "isLimited":"number",
+                                                     "isFixed":"number",
+                                                     "company":{"type":"object",
+                                                                "properties": {"id":"number",
+                                                                               "code":"string",
+                                                                               "name":"string",
+                                                                               "url":{"type":"string","format":"uri"}
+                                                                              }
+                                                               },
+                                                     "insuranceSubProduct": {"type":"array", 
+                                                                             "minitems": 1,
+                                                                             "items": {"type":"object",
+                                                                                       "required":["id","name","isActive","useRulesGroup","calcRulesGroup"]
+                                                                                       "properties": {"id":"number",
+                                                                                                      "name":"string",
+                                                                                                      "isActive":"number",
+                                                                                                      "useRulesGroup": {"type":"array", 
+                                                                                                      "minitems": 1,
+                                                                                                      "items": {"type":"array", 
+                                                                                                                "minitems": 1,
+                                                                                                                "items": {"type":"string"}
+                                                                                                               }
+                                                                                                                        },
+                                                                                                      "calcRulesGroup": {"type":"array", 
+                                                                                                                         "minitems": 1,
+                                                                                                                         "items": {"type":"object", 
+                                                                                                                                   "required":["calcRule"],
+                                                                                                                                   "properties": {"multiplierType":"null",
+                                                                                                                                                  "calcRule":{"type":"array", 
+                                                                                                                                                              "minitems": 1,
+                                                                                                                                                              "items": {"type":"string"}
+                                                                                                                                                              }
+                                                                                                                                                 }
+                                                                                                                                  }
+                                                                                                                         }
+                                                                                                     }
+                                                                                      }
+                                                                            }
+                                                    }
+                                     }
+                               }
             }
+
