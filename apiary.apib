@@ -351,33 +351,58 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
 ### Метод: GET /company/id [GET]
 
 Выводится подробная информация о страховой компании по id (только одной) из всего списка
+
 + Response 200 (application/json; charset=utf-8)
 
             {
-              "status": 200,
-              "company": {
-                "id": 51,
-                "code": "soglasie",
-                "isBlocked": 0,
-                "name": "Согласие",
-                "url": "http://www.soglasie.ru/",
-                "logo": "//static.staging.cherehapa.ru/i/latest/logo/155x56/soglasie.png",
-                "whiteLogo": null,
-                "color": "#e87932",
-                "insuranceRules": "//static.staging.cherehapa.ru/d/latest/rules/soglasie.pdf",
-                "insuranceHospitals": null,
-                "cancelEmail": "ap@tsys.pw",
-                "useLocalName": 0,
-                "usePassport": 0,
-                "childAge": null,
-                "agentsFee": 30,
-                "roundType": 0,
-                "processType": null,
-                "recommendationText": "",
-                "maxAge": 85,
-                "useFullSports": 0,
-                "additionalClasses": null
-              }
+             "status": 200,
+             "company": {
+                          "id": 51,
+                          "code": "soglasie",
+                          "isBlocked": 0,
+                          "name": "Согласие",
+                          "url": "http://www.soglasie.ru/",
+                          "logo": "//d2j2dl4huu79en.cloudfront.net/i/latest/logo/155x56/soglasie.png",
+                          "whiteLogo": null,
+                          "color": "#e87932",
+                          "insuranceRules": "//d2j2dl4huu79en.cloudfront.net/d/latest/rules/soglasie.pdf",
+                          "insuranceHospitals": null,
+                          "useLocalName": 1,
+                          "useInsurerBirthday": 1,
+                          "usePassport": 0,
+                          "maxAge": 85,
+                          "additionalClasses": null
+                        }
+            }
+
+    + Schema
+
+            {
+                "type":"object",
+                "properties": {
+                  "status": {"type":"number"},
+                  "company":{"type":"object",
+                             "required":["id", "code","isBlocked","name","logo","color","insuranceRules",
+                                         "insuranceHospitals","useLocalName","useInsurerBirthday",
+                                         "usePassport","maxAge","additionalClasses"],
+                            "properties":{"id": {"type":"number"},
+                                          "code": {"type":"string"},
+                                          "isBlocked":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                                          "name":{"type":"string"},
+                                          "url":{"type":"string","format":"uri"},
+                                          "logo":{"type":"string","pattern": "^//"},
+                                          "whiteLogo":{"anyOf": [ {"type":"string"}, {"type":"null"} ]},
+                                          "color":{"type":"string","pattern":"^#"},
+                                          "insuranceRules":{"anyOf": [ {"type":"string","pattern": "^//"},{"type":"null"} ]},
+                                          "insuranceHospitals":{"anyOf": [ {"type":"string"}, {"type":"null"} ]},
+                                          "useLocalName":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                                          "useInsurerBirthday":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                                          "usePassport":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                                          "maxAge":{"type":"number","minimum": 0,"maximum": 200,"exclusiveMaximum": false},
+                                          "additionalClasses":{"anyOf": [ {"type":"string"}, {"type":"null"} ]}
+                                        }
+                           }
+                } 
             }
 
 ## service: список страховых услуг, доступных партнеру [/service?key={key}]
