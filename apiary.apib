@@ -245,6 +245,10 @@ HOST: http://sandbox.cherehapa.ru/v2/
 ### Метод: GET /company [GET]
 
 Выводится список страховых компаний, доступных партнеру. В примере показаны только 3 компании, для того, чтобы увидеть весь список - выполните запрос.
+
+FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" должны иметь такой же паттерн проверки, что и для "insuranceRules", пока остается так, 
+поскольку в базе ещё не везде под эту схему исправлено.
+
 + Response 200 (application/json; charset=utf-8)
 
             {
@@ -332,8 +336,7 @@ HOST: http://sandbox.cherehapa.ru/v2/
                          } 
               }
             }
-#FIXME: в Schema значения для "insuranceHospitals" и "whiteLogo" должны иметь такой же паттерн проверки, что и для "insuranceRules", пока остается так, 
-#       поскольку в базе ещё не везде под эту схему исправлено.
+
 
 
 ## company: подробная информацию о компании по id [/company/{id}?key={key}]
