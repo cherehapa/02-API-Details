@@ -324,10 +324,10 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
                                                       "isBlocked":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
                                                       "name":{"type":"string"},
                                                       "url":{"type":"string","format":"uri"},
-                                                      "logo":{"type":"string","pattern": "^//"},
+                                                      "logo":{"type":"string","format":"uri"},
                                                       "whiteLogo":{"anyOf": [ {"type":"string"}, {"type":"null"} ]},
                                                       "color":{"type":"string","pattern":"^#"},
-                                                      "insuranceRules":{"anyOf": [ {"type":"string","pattern": "^//"},{"type":"null"} ]},
+                                                      "insuranceRules":{"anyOf": [ {"type":"string","pattern": "\/\/"},{"type":"null"} ]},
                                                       "insuranceHospitals":{"anyOf": [ {"type":"string"}, {"type":"null"} ]},
                                                       "useLocalName":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
                                                       "useInsurerBirthday":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
@@ -362,7 +362,7 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
                           "isBlocked": 0,
                           "name": "Согласие",
                           "url": "http://www.soglasie.ru/",
-                          "logo": "//d2j2dl4huu79en.cloudfront.net/i/latest/logo/155x56/soglasie.png",
+                          "logo": "http://d2j2dl4huu79en.cloudfront.net/i/latest/logo/155x56/soglasie.png",
                           "whiteLogo": null,
                           "color": "#e87932",
                           "insuranceRules": "//d2j2dl4huu79en.cloudfront.net/d/latest/rules/soglasie.pdf",
@@ -390,10 +390,10 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
                                           "isBlocked":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
                                           "name":{"type":"string"},
                                           "url":{"type":"string","format":"uri"},
-                                          "logo":{"type":"string","pattern": "^//"},
+                                          "logo":{"type":"string","format":"uri"},
                                           "whiteLogo":{"anyOf": [ {"type":"string"}, {"type":"null"} ]},
                                           "color":{"type":"string","pattern":"^#"},
-                                          "insuranceRules":{"anyOf": [ {"type":"string","pattern": "^//"},{"type":"null"} ]},
+                                          "insuranceRules":{"anyOf": [ {"type":"string","pattern": "\/\/"},{"type":"null"} ]},
                                           "insuranceHospitals":{"anyOf": [ {"type":"string"}, {"type":"null"} ]},
                                           "useLocalName":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
                                           "useInsurerBirthday":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
@@ -1902,7 +1902,7 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
 
 Выводится подробная информация о страховом продукте по id. ВНИМАНИЕ приведенный пример ответа системы очень обширный.
 
-FIXME: поле "multiplierType":"null", из "calcRulesGroup" в ответе на GET /insuranceProduct/id будет удалено.
+FIXME: поле "multiplierType":"null", из "calcRulesGroup" в ответе на GET /insuranceProduct/id будет удалено , также будут удалены объекты "caclRulesGroup" , "useRulesGroup" .
 
 + Response 200 (application/json; charset=utf-8)
 
@@ -2333,56 +2333,39 @@ FIXME: поле "multiplierType":"null", из "calcRulesGroup" в ответе �
         }
         }
 
-            + Schema
-            {
-                "type":"object",
-                "properties": {
-                 "status": {"type":"number"},
-                 "insuranceProduct": {"type":"object",
-                                      "required":["id","code","name","isLimited","isFixed","company","insuranceSubProduct"]
-                                      "properties": {"id":"number",
-                                                     "code":"string",
-                                                     "name":"string",
-                                                     "isLimited":"number",
-                                                     "isFixed":"number",
-                                                     "company":{"type":"object",
-                                                                "properties": {"id":"number",
-                                                                               "code":"string",
-                                                                               "name":"string",
-                                                                               "url":{"type":"string","format":"uri"}
-                                                                              }
-                                                               },
-                                                     "insuranceSubProduct": {"type":"array", 
-                                                                             "minitems": 1,
-                                                                             "items": {"type":"object",
-                                                                                       "required":["id","name","isActive","useRulesGroup","calcRulesGroup"]
-                                                                                       "properties": {"id":"number",
-                                                                                                      "name":"string",
-                                                                                                      "isActive":"number",
-                                                                                                      "useRulesGroup": {"type":"array", 
-                                                                                                      "minitems": 1,
-                                                                                                      "items": {"type":"array", 
-                                                                                                                "minitems": 1,
-                                                                                                                "items": {"type":"string"}
-                                                                                                               }
-                                                                                                                        },
-                                                                                                      "calcRulesGroup": {"type":"array", 
-                                                                                                                         "minitems": 1,
-                                                                                                                         "items": {"type":"object", 
-                                                                                                                                   "required":["calcRule"],
-                                                                                                                                   "properties": {"multiplierType":"null",
-                                                                                                                                                  "calcRule":{"type":"array", 
-                                                                                                                                                              "minitems": 1,
-                                                                                                                                                              "items": {"type":"string"}
-                                                                                                                                                              }
-                                                                                                                                                 }
-                                                                                                                                  }
-                                                                                                                         }
-                                                                                                     }
-                                                                                      }
-                                                                            }
-                                                    }
-                                     }
-                               }
-            }
+    + Schema
 
+            { "type":"object",
+              "required":["status","insuranceProduct"],
+              "properties":{"status":{"type":"number"},
+                            "insuranceProduct":{"type":"object",
+                                                 "required":["id","code","name","isLimited","isFixed","company","insuranceSubProduct"],
+                                                 "properties":{"id":{"type":"number"},
+                                                               "code":{"type":"string"},
+                                                               "name":{"type":"string"},
+                                                               "isLimited":{"type":"number","minimum":0,"maximum":1,"exclusiveMaximum":false},
+                                                               "isFixed":{"type":"number","minimum":0,"maximum":1,"exclusiveMaximum":false},
+                                                               "company":{"type":"object",
+                                                                          "required":["id","code","name","url"],
+                                                                          "properties": {"id":{"type":"number"},
+                                                                                         "code":{"type":"string"},
+                                                                                         "name":{"type":"string"},
+                                                                                         "url":{"type":"string","format":"uri"}
+                                                                                         }
+                                                                          },
+                                                               "insuranceSubProduct":{"type":"array", 
+                                                                                      "minitems": 1,
+                                                                                      "items":{"type":"object",
+                                                                                               "required":["id","name","isActive"],
+                                                                                               "additionalProperties": true,
+                                                                                               "properties":{"id":{"type":"number"},
+                                                                                                              "name":{"type":"string"},
+                                                                                                              "isActive":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false}
+                                                                                                            }
+                                                                                              }
+                                                                                     }
+                                                             }
+                                               }
+                             }
+            }
+            
