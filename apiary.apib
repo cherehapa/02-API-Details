@@ -312,14 +312,14 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
             {
                 "type":"object",
                 "properties": {
-                 "status": {"type":"number"},
+                 "status": {"type":"number","minimum":100,"maximum":600,"exclusiveMaximum": false,"exclusiveMaximum": false},
                  "company": { "type":"array", 
                               "minItems": 1,
                               "items": {"type":"object",
                                         "required":["id", "code","isBlocked","name","logo","color","insuranceRules",
                                                    "insuranceHospitals","useLocalName","useInsurerBirthday",
                                                    "usePassport","maxAge","additionalClasses"],
-                                        "properties":{"id": {"type":"number"},
+                                        "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
                                                       "code": {"type":"string"},
                                                       "isBlocked":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
                                                       "name":{"type":"string"},
@@ -380,12 +380,12 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
             {
                 "type":"object",
                 "properties": {
-                  "status": {"type":"number"},
+                  "status": {"type":"number","minimum":100,"maximum":600,"exclusiveMaximum": false,"exclusiveMaximum": false},
                   "company":{"type":"object",
                              "required":["id", "code","isBlocked","name","logo","color","insuranceRules",
                                          "insuranceHospitals","useLocalName","useInsurerBirthday",
                                          "usePassport","maxAge","additionalClasses"],
-                            "properties":{"id": {"type":"number"},
+                            "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
                                           "code": {"type":"string"},
                                           "isBlocked":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
                                           "name":{"type":"string"},
@@ -610,6 +610,10 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
 ### Метод: GET /insuranceProduct [GET]
 
 Выводится список страховых продуктов, доступных партнеру. ВНИМАНИЕ полный запрос выполняется ОЧЕНЬ ДОЛГО (от 1 до нескольких минут). Рекомендуется выполнять запрос с фильтром.
+FIXME: везде тип "code" должен быть строкой, сейчас небольшая часть выдачи - числа, как только поправят в базе - поправить пример вывода и схему адаптированную под эту ошибку
+чтобы не падали тесты.
+
+
 + Response 200 (application/json; charset=utf-8)
 
         {
@@ -1891,7 +1895,37 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
         }
         ]
         }
-            
+
+    + Schema
+
+            { "type":"object",
+              "required":["status","insuranceProduct"],
+              "properties":{"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMaximum": false,"exclusiveMaximum": false},
+                            "insuranceProduct": {"type":"array",
+                                                 "minitems":1,
+                                                 "items":{"type":"object",
+                                                          "required":["id","code","name","isLimited","isFixed","company"],
+                                                          "additionalProperties": false,
+                                                          "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
+                                                                        "code": {"anyOf":[{"type":"string"},{"type":"number"}]},
+                                                                        "name":{"type":"string"},
+                                                                        "isLimited":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                                                                        "isFixed":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                                                                        "company":{"type":"object",
+                                                                                   "required":["id","code","name","url"],
+                                                                                   "additionalProperties": false,
+                                                                                   "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
+                                                                                                 "code":{"type":"string"},
+                                                                                                 "name":{"type":"string"},
+                                                                                                 "url":{"type":"string","format":"uri"}
+                                                                                                }
+                                                                                  }
+                                                                       }
+                                                         }
+                                                } 
+                           }
+            }
+
 ## insuranceProduct: подробная информация о страховом продукте по id [/insuranceProduct/{id}?key={key}]
 
 + Parameters
@@ -2337,17 +2371,17 @@ FIXME: поле "multiplierType":"null", из "calcRulesGroup" в ответе �
 
             { "type":"object",
               "required":["status","insuranceProduct"],
-              "properties":{"status":{"type":"number"},
+              "properties":{"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMaximum": false,"exclusiveMaximum": false},
                             "insuranceProduct":{"type":"object",
                                                  "required":["id","code","name","isLimited","isFixed","company","insuranceSubProduct"],
-                                                 "properties":{"id":{"type":"number"},
+                                                 "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
                                                                "code":{"type":"string"},
                                                                "name":{"type":"string"},
                                                                "isLimited":{"type":"number","minimum":0,"maximum":1,"exclusiveMaximum":false},
                                                                "isFixed":{"type":"number","minimum":0,"maximum":1,"exclusiveMaximum":false},
                                                                "company":{"type":"object",
                                                                           "required":["id","code","name","url"],
-                                                                          "properties": {"id":{"type":"number"},
+                                                                          "properties": {"id": {"type":"number","minimum":1,"exclusiveMimum": false},
                                                                                          "code":{"type":"string"},
                                                                                          "name":{"type":"string"},
                                                                                          "url":{"type":"string","format":"uri"}
@@ -2358,9 +2392,9 @@ FIXME: поле "multiplierType":"null", из "calcRulesGroup" в ответе �
                                                                                       "items":{"type":"object",
                                                                                                "required":["id","name","isActive"],
                                                                                                "additionalProperties": true,
-                                                                                               "properties":{"id":{"type":"number"},
-                                                                                                              "name":{"type":"string"},
-                                                                                                              "isActive":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false}
+                                                                                               "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
+                                                                                                             "name":{"type":"string"},
+                                                                                                             "isActive":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false}
                                                                                                             }
                                                                                               }
                                                                                      }
