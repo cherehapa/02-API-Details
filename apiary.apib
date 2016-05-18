@@ -312,16 +312,16 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
             {
                 "type":"object",
                 "properties": {
-                 "status": {"type":"number","minimum":100,"maximum":600,"exclusiveMaximum": false,"exclusiveMaximum": false},
+                 "status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
                  "company": { "type":"array", 
                               "minItems": 1,
                               "items": {"type":"object",
                                         "required":["id", "code","isBlocked","name","logo","color","insuranceRules",
                                                    "insuranceHospitals","useLocalName","useInsurerBirthday",
                                                    "usePassport","maxAge","additionalClasses"],
-                                        "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
+                                        "properties":{"id": {"type":"number","minimum":1,"exclusiveMinimum": false},
                                                       "code": {"type":"string"},
-                                                      "isBlocked":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                                                      "isBlocked":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false},
                                                       "name":{"type":"string"},
                                                       "url":{"type":"string","format":"uri"},
                                                       "logo":{"type":"string","format":"uri"},
@@ -329,10 +329,10 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
                                                       "color":{"type":"string","pattern":"^#"},
                                                       "insuranceRules":{"anyOf": [ {"type":"string","pattern": "\/\/"},{"type":"null"} ]},
                                                       "insuranceHospitals":{"anyOf": [ {"type":"string"}, {"type":"null"} ]},
-                                                      "useLocalName":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
-                                                      "useInsurerBirthday":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
-                                                      "usePassport":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
-                                                      "maxAge":{"type":"number","minimum": 0,"maximum": 200,"exclusiveMaximum": false},
+                                                      "useLocalName":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false},
+                                                      "useInsurerBirthday":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false},
+                                                      "usePassport":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false},
+                                                      "maxAge":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 200,"exclusiveMaximum": false},
                                                       "additionalClasses":{"anyOf": [ {"type":"string"}, {"type":"null"} ]}
                                                      }
                                        }
@@ -380,14 +380,14 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
             {
                 "type":"object",
                 "properties": {
-                  "status": {"type":"number","minimum":100,"maximum":600,"exclusiveMaximum": false,"exclusiveMaximum": false},
+                  "status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
                   "company":{"type":"object",
                              "required":["id", "code","isBlocked","name","logo","color","insuranceRules",
                                          "insuranceHospitals","useLocalName","useInsurerBirthday",
                                          "usePassport","maxAge","additionalClasses"],
-                            "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
+                            "properties":{"id": {"type":"number","minimum":1,"exclusiveMinimum": false},
                                           "code": {"type":"string"},
-                                          "isBlocked":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                                          "isBlocked":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false},
                                           "name":{"type":"string"},
                                           "url":{"type":"string","format":"uri"},
                                           "logo":{"type":"string","format":"uri"},
@@ -395,10 +395,10 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
                                           "color":{"type":"string","pattern":"^#"},
                                           "insuranceRules":{"anyOf": [ {"type":"string","pattern": "\/\/"},{"type":"null"} ]},
                                           "insuranceHospitals":{"anyOf": [ {"type":"string"}, {"type":"null"} ]},
-                                          "useLocalName":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
-                                          "useInsurerBirthday":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
-                                          "usePassport":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
-                                          "maxAge":{"type":"number","minimum": 0,"maximum": 200,"exclusiveMaximum": false},
+                                          "useLocalName":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false},
+                                          "useInsurerBirthday":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false},
+                                          "usePassport":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false},
+                                          "maxAge":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 200,"exclusiveMaximum": false},
                                           "additionalClasses":{"anyOf": [ {"type":"string"}, {"type":"null"} ]}
                                         }
                            }
@@ -1900,21 +1900,21 @@ FIXME: везде тип "code" должен быть строкой, сейча
 
             { "type":"object",
               "required":["status","insuranceProduct"],
-              "properties":{"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMaximum": false,"exclusiveMaximum": false},
+              "properties":{"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
                             "insuranceProduct": {"type":"array",
                                                  "minitems":1,
                                                  "items":{"type":"object",
                                                           "required":["id","code","name","isLimited","isFixed","company"],
                                                           "additionalProperties": false,
-                                                          "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
+                                                          "properties":{"id": {"type":"number","minimum":1,"exclusiveMinimum": false},
                                                                         "code": {"anyOf":[{"type":"string"},{"type":"number"}]},
                                                                         "name":{"type":"string"},
-                                                                        "isLimited":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
-                                                                        "isFixed":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false},
+                                                                        "isLimited":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false},
+                                                                        "isFixed":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false},
                                                                         "company":{"type":"object",
                                                                                    "required":["id","code","name","url"],
                                                                                    "additionalProperties": false,
-                                                                                   "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
+                                                                                   "properties":{"id": {"type":"number","minimum":1,"exclusiveMinimum": false},
                                                                                                  "code":{"type":"string"},
                                                                                                  "name":{"type":"string"},
                                                                                                  "url":{"type":"string","format":"uri"}
@@ -2371,17 +2371,17 @@ FIXME: поле "multiplierType":"null", из "calcRulesGroup" в ответе �
 
             { "type":"object",
               "required":["status","insuranceProduct"],
-              "properties":{"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMaximum": false,"exclusiveMaximum": false},
+              "properties":{"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
                             "insuranceProduct":{"type":"object",
                                                  "required":["id","code","name","isLimited","isFixed","company","insuranceSubProduct"],
-                                                 "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
+                                                 "properties":{"id": {"type":"number","minimum":1,"exclusiveMinimum": false},
                                                                "code":{"type":"string"},
                                                                "name":{"type":"string"},
-                                                               "isLimited":{"type":"number","minimum":0,"maximum":1,"exclusiveMaximum":false},
-                                                               "isFixed":{"type":"number","minimum":0,"maximum":1,"exclusiveMaximum":false},
+                                                               "isLimited":{"type":"number","minimum":0,"exclusiveMinimum": false,"maximum":1,"exclusiveMaximum":false},
+                                                               "isFixed":{"type":"number","minimum":0,"exclusiveMinimum": false,"maximum":1,"exclusiveMaximum":false},
                                                                "company":{"type":"object",
                                                                           "required":["id","code","name","url"],
-                                                                          "properties": {"id": {"type":"number","minimum":1,"exclusiveMimum": false},
+                                                                          "properties": {"id": {"type":"number","minimum":1,"exclusiveMinimum": false},
                                                                                          "code":{"type":"string"},
                                                                                          "name":{"type":"string"},
                                                                                          "url":{"type":"string","format":"uri"}
@@ -2392,9 +2392,9 @@ FIXME: поле "multiplierType":"null", из "calcRulesGroup" в ответе �
                                                                                       "items":{"type":"object",
                                                                                                "required":["id","name","isActive"],
                                                                                                "additionalProperties": true,
-                                                                                               "properties":{"id": {"type":"number","minimum":1,"exclusiveMimum": false},
+                                                                                               "properties":{"id": {"type":"number","minimum":1,"exclusiveMinimum": false},
                                                                                                              "name":{"type":"string"},
-                                                                                                             "isActive":{"type":"number","minimum": 0,"maximum": 1,"exclusiveMaximum": false}
+                                                                                                             "isActive":{"type":"number","minimum": 0,"exclusiveMinimum": false,"maximum": 1,"exclusiveMaximum": false}
                                                                                                             }
                                                                                               }
                                                                                      }
