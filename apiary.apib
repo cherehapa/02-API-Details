@@ -788,6 +788,8 @@ FIXME: parentGroupId скорее всего с 1, а не с 0 - если по�
 ### Метод: GET /serviceGroup/id [GET]
 
 Выводится подробная информация о группе страховых услуг по id.
+FIXME: аналогично /serviceGroup выше.
+
 + Response 200 (application/json; charset=utf-8)
 
             {
@@ -800,6 +802,30 @@ FIXME: parentGroupId скорее всего с 1, а не с 0 - если по�
                 "sortIndex": 5,
                 "description": "В случае, если путешественник пострадал и получил травму, страховая компания не только оплатит лечение, но выплатит еще и дополнительную компенсацию. "
               }
+            }
+
+    + Schema
+
+            {
+             "type":"object",
+             "properties": {"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+                            "serviceGroup":{"type":"object",
+                                            "required":["id","code","name","parentGroupId","sortIndex","description"],
+                                            "properties":{"id":{"type":"number","minimum":1,"exclusiveMinimum": false},
+                                                          "code":{"type":"string"},
+                                                          "name":{"type":"string"},
+                                                          "parentGroupId":{"oneOf":[{"type":"number","minimum":0,"exclusiveMinimum": false},
+                                                                                    {"type":"null"}
+                                                                                   ]
+                                                                          },
+                                                          "sortIndex":{"type":"number","minimum": 0,"exclusiveMinimum": false},
+                                                          "description":{"oneOf":[{"type":"string"},
+                                                                                  {"type":"null"}
+                                                                                 ]
+                                                                        }
+                                                         }
+                                           }
+                           } 
             }
 
 ## sport: возвращает список видов спорта [/sport?key={key}]
