@@ -160,33 +160,18 @@ FIXME: После закрытия CHEB-850 поправить схему - по
                   {
                     "id": 12,
                     "code": "austria",
-                    "name": "Австрия"
+                    "name": "Австрия",
+                    "caseWhere": "в Австрии",
+                    "caseTo": "в Австрию"
                   },
                   {
                     "id": 18,
                     "code": "albania",
-                    "name": "Албания"
-                  },
-                  {
-                    "id": 30,
-                    "code": "andorra",
-                    "name": "Андорра"
-                  },
-                  {
-                    "id": 60,
-                    "code": "byelorussia",
-                    "name": "Белоруссия"
-                  },
-                  {
-                    "id": 63,
-                    "code": "belgium",
-                    "name": "Бельгия"
-                  },
-                  {
-                    "id": 72,
-                    "code": "bulgaria",
-                    "name": "Болгария"
-                  }        ]
+                    "name": "Албания",
+                    "caseWhere": "в Албании",
+                    "caseTo": "в Албанию"
+                  }
+                          ]
               },
               {
               "id": 6,
@@ -198,34 +183,17 @@ FIXME: После закрытия CHEB-850 поправить схему - по
                 {
                     "id": 36,
                     "code": "argentina",
-                    "name": "Аргентина"
+                    "name": "Аргентина",
+                    "caseWhere": "в Аргентине",
+                    "caseTo": "в Аргентину"
                 },
                 {
                     "id": 75,
                     "code": "bolivia",
-                    "name": "Боливия"
-                },
-                {
-                    "id": 84,
-                    "code": "brazil",
-                    "name": "Бразилия"
-                },
-                {
-                    "id": 105,
-                    "code": "venezuela",
-                    "name": "Венесуэла"
-                },
-                {
-                    "id": 117,
-                    "code": "guyana",
-                    "name": "Гайана"
-                },
-                {
-                    "id": 132,
-                    "code": "guiana",
-                    "name": "Гвиана"
-                }
-               ]
+                    "name": "Боливия",
+                    "caseWhere": "в Боливии",
+                    "caseTo": "в Боливию"
+                }        ]
               }
              ]
             }
@@ -235,7 +203,7 @@ FIXME: После закрытия CHEB-850 поправить схему - по
             {"type":"object",
              "properties":{"status":{"type":"number","minimum":100,"maximum":600,"exclusiveMinimum":false,"exclusiveMaximum":false},
                            "countryGroup":{"type":"array", 
-                                           "minItems": 1,
+                                           "minItems": 6,
                                            "items":{"type":"object",
                                                     "required":["id","code","name","companyId","isPublic","country"],
                                                     "properties":{"id":{"type":"number","minimum":1,"exclusiveMinimum": false},
@@ -248,11 +216,13 @@ FIXME: После закрытия CHEB-850 поправить схему - по
                                                                   "isPublic":{"type":"number","minimum":0,"exclusiveMinimum":false,"maximum":1,"exclusiveMaximum":false},
                                                                   "country":{"type":"array",
                                                                              "items":{"type":"object",
-                                                                                      "required":["id","code","name"],
+                                                                                      "required":["id","code","name","caseWhere","caseTo"],
                                                                                       "additionalProperties":false,
                                                                                       "properties":{"id":{"type":"number","minimum":1,"exclusiveMinimum": false},
                                                                                                     "code":{"type":"string"},
-                                                                                                    "name":{"type":"string"}
+                                                                                                    "name":{"type":"string"},
+                                                                                                    "caseWhere":{"type":"string"},
+                                                                                                    "caseTo":{"type":"string"}
                                                                                                    }
                                                                                      }
                                                                             }
@@ -288,33 +258,18 @@ FIXME: такое же как у /countryGroup - поле isPublic уйдёт, �
                       {
                         "id": 12,
                         "code": "austria",
-                        "name": "Австрия"
+                        "name": "Австрия",
+                        "caseWhere": "в Австрии",
+                        "caseTo": "в Австрию"
                       },
                       {
                         "id": 18,
                         "code": "albania",
-                        "name": "Албания"
-                      },
-                      {
-                        "id": 30,
-                        "code": "andorra",
-                        "name": "Андорра"
-                      },
-                      {
-                        "id": 60,
-                        "code": "byelorussia",
-                        "name": "Белоруссия"
-                      },
-                      {
-                        "id": 63,
-                        "code": "belgium",
-                        "name": "Бельгия"
-                      },
-                      {
-                        "id": 72,
-                        "code": "bulgaria",
-                        "name": "Болгария"
+                        "name": "Албания",
+                        "caseWhere": "в Албании",
+                        "caseTo": "в Албанию"
                       }    ]
+                              
                               }
             }
 
@@ -334,11 +289,13 @@ FIXME: такое же как у /countryGroup - поле isPublic уйдёт, �
                                                                "isPublic":{"type":"number","minimum":0,"exclusiveMinimum":false,"maximum":1,"exclusiveMaximum":false},
                                                                "country":{"type":"array",
                                                                           "items":{"type":"object",
-                                                                                   "required":["id","code","name"],
+                                                                                   "required":["id","code","name","caseWhere","caseTo"],
                                                                                    "additionalProperties":false,
                                                                                    "properties":{"id":{"type":"number","minimum":1,"exclusiveMinimum": false},
                                                                                                  "code":{"type":"string"},
-                                                                                                 "name":{"type":"string"}
+                                                                                                 "name":{"type":"string"},
+                                                                                                 "caseWhere":{"type":"string"},
+                                                                                                 "caseTo":{"type":"string"}
                                                                                                 }
                                                                                   }
                                                                          }
