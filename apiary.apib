@@ -21,7 +21,14 @@ HOST: http://api.sandbox.cherehapa.ru/v2/
 ### Метод: GET /country [GET]
 
 Выводится полный список стран (в примере показано только 3 страны, полный список можно увидеть выполнив запрос)
-+ Response 200 (application/json; charset=utf-8)
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
                 "status": 200,
@@ -95,7 +102,14 @@ HOST: http://api.sandbox.cherehapa.ru/v2/
 ### Метод: GET /country/id [GET]
 
 Выводится информация о выбранной стране
-+ Response 200 (application/json; charset=utf-8)
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
               "status": 200,
@@ -146,7 +160,13 @@ HOST: http://api.sandbox.cherehapa.ru/v2/
 Выводится информация обо всех группах стран. ВНИМАНИЕ полный запрос выполняется ОЧЕНЬ ДОЛГО (от 1 до нескольких минут). В примере дан сильно усеченный пример вывода. Рекомендуется выполнять запрос с фильтром.
 FIXME: После закрытия CHEB-850 поправить схему - поле isPublic будет убрано из вывода.
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
               "status": 200,
@@ -244,7 +264,13 @@ FIXME: После закрытия CHEB-850 поправить схему - по
 Выводится информация о выбранной группе стран, в примере вывод ограничен первыми 6-ю странами из списка "Европа", для получения полного списка - выполните запрос с id=3.
 FIXME: такое же как у /countryGroup - поле isPublic уйдёт, группы для которых оно 0 будут отдаваать 404.
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
               "status": 200,
@@ -318,92 +344,98 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
 поскольку в базе ещё не везде под эту схему исправлено.
 Также планируется замена 0/1 на false/true для "isBlocked","useLocalName","useInsurerBirthday","usePassport" .
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
 
-        {
-        "status": 200,
-        "company": [
-        {
-        "id": 1,
-        "code": "erv",
-        "isBlocked": 0,
-        "name": "ERV",
-        "url": "http://www.erv.ru/",
-        "whiteLogo": null,
-        "color": "#beb400",
-        "insuranceRules": "http://static.ci.cherehapa.ru/d/latest/rules/erv.zip",
-        "insuranceHospitals": null,
-        "useLocalName": 0,
-        "useInsurerBirthday": 0,
-        "usePassport": 0,
-        "maxAge": 130,
-        "additionalClasses": null,
-        "logo": "http://static.ci.cherehapa.ru/i/latest/logo/155x56/erv.png",
-        "insurancePolicyExample": "http://static.ci.cherehapa.ru/d/latest/policy_example/erv.pdf"
-        },
-        {
-        "id": 23,
-        "code": "alfa",
-        "isBlocked": 0,
-        "name": "АльфаСтрахование",
-        "url": "http://www.alfastrah.ru/",
-        "whiteLogo": null,
-        "color": "#ef3124",
-        "insuranceRules": "http://static.ci.cherehapa.ru/d/latest/rules/alfa.zip",
-        "insuranceHospitals": null,
-        "useLocalName": 0,
-        "useInsurerBirthday": 0,
-        "usePassport": 0,
-        "maxAge": 120,
-        "additionalClasses": null,
-        "logo": "http://static.ci.cherehapa.ru/i/latest/logo/155x56/alfa.png",
-        "insurancePolicyExample": "http://static.ci.cherehapa.ru/d/latest/policy_example/alfa.pdf"
-        },
-        {
-        "id": 26,
-        "code": "rgs",
-        "isBlocked": 0,
-        "name": "Росгосстрах",
-        "url": "http://www.rgs.ru/",
-        "whiteLogo": null,
-        "color": "#9d0917",
-        "insuranceRules": "http://static.ci.cherehapa.ru/d/latest/rules/rgs.zip",
-        "insuranceHospitals": null,
-        "useLocalName": 0,
-        "useInsurerBirthday": 1,
-        "usePassport": 0,
-        "maxAge": 89,
-        "additionalClasses": null,
-        "logo": "http://static.ci.cherehapa.ru/i/latest/logo/155x56/rgs.png",
-        "insurancePolicyExample": "http://static.ci.cherehapa.ru/d/latest/policy_example/rgs.pdf"
-        },
-        {
-        "id": 56,
-        "code": "bin",
-        "isBlocked": 0,
-        "name": "БИН Страхование",
-        "url": "http://www.binins.ru/",
-        "whiteLogo": null,
-        "color": "#ee2d23",
-        "insuranceRules": "http://static.ci.cherehapa.ru/d/latest/rules/bin.zip",
-        "insuranceHospitals": null,
-        "useLocalName": 1,
-        "useInsurerBirthday": 1,
-        "usePassport": 0,
-        "maxAge": 65,
-        "additionalClasses": null,
-        "logo": "http://static.ci.cherehapa.ru/i/latest/logo/155x56/bin.png",
-        "insurancePolicyExample": "http://static.ci.cherehapa.ru/d/latest/policy_example/bin.pdf"
-        }
-        ]
-        }
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+            "status": 200,
+            "company": [
+            {
+            "id": 1,
+            "code": "erv",
+            "isBlocked": 0,
+            "name": "ERV",
+            "url": "http://www.erv.ru/",
+            "whiteLogo": null,
+            "color": "#beb400",
+            "insuranceRules": "http://static.ci.cherehapa.ru/d/latest/rules/erv.zip",
+            "insuranceHospitals": null,
+            "useLocalName": 0,
+            "useInsurerBirthday": 0,
+            "usePassport": 0,
+            "maxAge": 130,
+            "additionalClasses": null,
+            "logo": "http://static.ci.cherehapa.ru/i/latest/logo/155x56/erv.png",
+            "insurancePolicyExample": "http://static.ci.cherehapa.ru/d/latest/policy_example/erv.pdf"
+            },
+            {
+            "id": 23,
+            "code": "alfa",
+            "isBlocked": 0,
+            "name": "АльфаСтрахование",
+            "url": "http://www.alfastrah.ru/",
+            "whiteLogo": null,
+            "color": "#ef3124",
+            "insuranceRules": "http://static.ci.cherehapa.ru/d/latest/rules/alfa.zip",
+            "insuranceHospitals": null,
+            "useLocalName": 0,
+            "useInsurerBirthday": 0,
+            "usePassport": 0,
+            "maxAge": 120,
+            "additionalClasses": null,
+            "logo": "http://static.ci.cherehapa.ru/i/latest/logo/155x56/alfa.png",
+            "insurancePolicyExample": "http://static.ci.cherehapa.ru/d/latest/policy_example/alfa.pdf"
+            },
+            {
+            "id": 26,
+            "code": "rgs",
+            "isBlocked": 0,
+            "name": "Росгосстрах",
+            "url": "http://www.rgs.ru/",
+            "whiteLogo": null,
+            "color": "#9d0917",
+            "insuranceRules": "http://static.ci.cherehapa.ru/d/latest/rules/rgs.zip",
+            "insuranceHospitals": null,
+            "useLocalName": 0,
+            "useInsurerBirthday": 1,
+            "usePassport": 0,
+            "maxAge": 89,
+            "additionalClasses": null,
+            "logo": "http://static.ci.cherehapa.ru/i/latest/logo/155x56/rgs.png",
+            "insurancePolicyExample": "http://static.ci.cherehapa.ru/d/latest/policy_example/rgs.pdf"
+            },
+            {
+            "id": 56,
+            "code": "bin",
+            "isBlocked": 0,
+            "name": "БИН Страхование",
+            "url": "http://www.binins.ru/",
+            "whiteLogo": null,
+            "color": "#ee2d23",
+            "insuranceRules": "http://static.ci.cherehapa.ru/d/latest/rules/bin.zip",
+            "insuranceHospitals": null,
+            "useLocalName": 1,
+            "useInsurerBirthday": 1,
+            "usePassport": 0,
+            "maxAge": 65,
+            "additionalClasses": null,
+            "logo": "http://static.ci.cherehapa.ru/i/latest/logo/155x56/bin.png",
+            "insurancePolicyExample": "http://static.ci.cherehapa.ru/d/latest/policy_example/bin.pdf"
+            }
+            ]
+            }
 
     + Schema
 
             {
                 "type":"object",
                 "properties": {
-                 "status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+                 "status": {"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                  "company": { "type":"array", 
                               "minItems": 1,
                               "items": {"type":"object",
@@ -444,7 +476,13 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
 
 Выводится подробная информация о страховой компании по id (только одной) из всего списка
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
              "status": 200,
@@ -507,7 +545,13 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
 Выводится список страховых услуг, доступных партнеру. В примере приведена только запись с id=1, для получения всего списка - выполните запрос.
 FIXME: после исправления CHEB-850 поправить схему - для unitsText->EUR|RUB|USD будет выдаться только тип object (cейчас чтобы не падали тесты допустим ещё массив).
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
               "status": 200,
@@ -622,7 +666,13 @@ FIXME: после исправления CHEB-850 поправить схему 
 Выводится подробная информация о страховой услуге по id. Для получения информации по различным услугам - выполните запрос с различным id.
 FIXME: после закрытия CHEB-850 поправить схему: параметр sortIndex скорее всего будет удален.
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
              "status": 200,
@@ -709,7 +759,13 @@ FIXME: после закрытия CHEB-850 поправить схему: па�
 
 Выводится cписок групп страховых услуг, доступных партнеру. В примере приведены только 2 записи из всего списка. Выполните запрос, для получения всего списка.
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
              "status": 200,
@@ -769,7 +825,13 @@ FIXME: после закрытия CHEB-850 поправить схему: па�
 
 Выводится подробная информация о группе страховых услуг по id.
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
              "status": 200,
@@ -815,7 +877,14 @@ FIXME: после закрытия CHEB-850 поправить схему: па�
 ### Метод: GET /sport [GET]
 
 Выводится список видов спорта. В примере даны только первые 3 записи списка. Для получения всего списка, выполните запрос.
-+ Response 200 (application/json; charset=utf-8)
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
              "status": 200,
@@ -874,7 +943,13 @@ FIXME: после закрытия CHEB-850 поправить схему: па�
 
 Выводится подробная информация по одному виду спорта. 
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
 
             {
              "status": 200,
@@ -917,1287 +992,1293 @@ FIXME: везде тип "code" должен быть строкой, сейча
 чтобы не падали тесты.
 
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
 
-        {
-        "status": 200,
-        "insuranceProduct": [
-                {
-                 "id": 1,
-                 "code": "B",
-                  "name": "Стандарт Плюс",
-                  "isLimited": 0,
-                  "isFixed": 0,
-                  "company": {
-                          "id": 1,
-                          "code": "erv",
-                          "name": "ERV",
-                          "url": "http://www.erv.ru/"
-                          }
-                },
-                {
-        "id": 4,
-        "code": "OPI",
-        "name": "OPTIMA",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 1,
-        "code": "erv",
-        "name": "ERV",
-        "url": "http://www.erv.ru/"
-        }
-        },
-        {
-        "id": 6,
-        "code": "B",
-        "name": "АльфаТревел Эконом",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 23,
-        "code": "alfa",
-        "name": "АльфаСтрахование",
-        "url": "http://www.alfastrah.ru/"
-        }
-        },
-        {
-        "id": 9,
-        "code": "C",
-        "name": "АльфаТревел Классик",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 23,
-        "code": "alfa",
-        "name": "АльфаСтрахование",
-        "url": "http://www.alfastrah.ru/"
-        }
-        },
-        {
-        "id": 12,
-        "code": "D",
-        "name": "АльфаТревел Авто",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 23,
-        "code": "alfa",
-        "name": "АльфаСтрахование",
-        "url": "http://www.alfastrah.ru/"
-        }
-        },
-        {
-        "id": 15,
-        "code": "V",
-        "name": "АльфаТревел Бизнес (V.I.P.)",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 23,
-        "code": "alfa",
-        "name": "АльфаСтрахование",
-        "url": "http://www.alfastrah.ru/"
-        }
-        },
-        {
-        "id": 18,
-        "code": "M",
-        "name": "АльфаТревел MULTI",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 23,
-        "code": "alfa",
-        "name": "АльфаСтрахование",
-        "url": "http://www.alfastrah.ru/"
-        }
-        },
-        {
-        "id": 29,
-        "code": "E",
-        "name": "АльфаТревел Премиум",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 23,
-        "code": "alfa",
-        "name": "АльфаСтрахование",
-        "url": "http://www.alfastrah.ru/"
-        }
-        },
-        {
-        "id": 30,
-        "code": "OA",
-        "name": "OPTIMA-Годовой",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 1,
-        "code": "erv",
-        "name": "ERV",
-        "url": "http://www.erv.ru/"
-        }
-        },
-        {
-        "id": 38,
-        "code": "PartnerTravelBox",
-        "name": "CherehapaFullTravel",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 29,
-        "code": "tinkoff",
-        "name": "Тинькофф Страхование",
-        "url": "https://www.tinkoffinsurance.ru/"
-        }
-        },
-        {
-        "id": 39,
-        "code": "f96e230d-fedf-4600-8b9c-56faeca76a37",
-        "name": "Эконом",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 26,
-        "code": "rgs",
-        "name": "Росгосстрах",
-        "url": "http://www.rgs.ru/"
-        }
-        },
-        {
-        "id": 42,
-        "code": "00b2e9b1-58ec-4c03-8e30-41e776249bdf",
-        "name": "Стандарт",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 26,
-        "code": "rgs",
-        "name": "Росгосстрах",
-        "url": "http://www.rgs.ru/"
-        }
-        },
-        {
-        "id": 45,
-        "code": "cc6ddb1e-efc2-4425-a8bf-368adec3b0a0",
-        "name": "Комфорт",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 26,
-        "code": "rgs",
-        "name": "Росгосстрах",
-        "url": "http://www.rgs.ru/"
-        }
-        },
-        {
-        "id": 48,
-        "code": "740ab743-bfc8-4e14-b9dd-c9216b1caa20",
-        "name": "Премиум",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 26,
-        "code": "rgs",
-        "name": "Росгосстрах",
-        "url": "http://www.rgs.ru/"
-        }
-        },
-        {
-        "id": 50,
-        "code": "82f2e10a-6799-4dea-b583-ab714dbc77b1",
-        "name": "1R Эконом",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 26,
-        "code": "rgs",
-        "name": "Росгосстрах",
-        "url": "http://www.rgs.ru/"
-        }
-        },
-        {
-        "id": 53,
-        "code": "f7d4bc58-b88b-4d0e-9b21-4e7281b41e3f",
-        "name": "2R Комфорт",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 26,
-        "code": "rgs",
-        "name": "Росгосстрах",
-        "url": "http://www.rgs.ru/"
-        }
-        },
-        {
-        "id": 56,
-        "code": "a23733b1-7eb7-4515-acc7-44b14665a5d2",
-        "name": "3R Премиум",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 26,
-        "code": "rgs",
-        "name": "Росгосстрах",
-        "url": "http://www.rgs.ru/"
-        }
-        },
-        {
-        "id": 57,
-        "code": "econom",
-        "name": "Econom",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 32,
-        "code": "vtb",
-        "name": "ВТБ Страхование",
-        "url": "http://www.vtbins.ru/"
-        }
-        },
-        {
-        "id": 60,
-        "code": "standard",
-        "name": "Standard",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 32,
-        "code": "vtb",
-        "name": "ВТБ Страхование",
-        "url": "http://www.vtbins.ru/"
-        }
-        },
-        {
-        "id": 61,
-        "code": "vtbCancel",
-        "name": "Страхование на случай отмены поездки",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 32,
-        "code": "vtb",
-        "name": "ВТБ Страхование",
-        "url": "http://www.vtbins.ru/"
-        }
-        },
-        {
-        "id": 64,
-        "code": "vtbDelay",
-        "name": "Страхование на случай задержки рейса",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 32,
-        "code": "vtb",
-        "name": "ВТБ Страхование",
-        "url": "http://www.vtbins.ru/"
-        }
-        },
-        {
-        "id": 67,
-        "code": "vtbAvia",
-        "name": "Страхование на время перелета",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 32,
-        "code": "vtb",
-        "name": "ВТБ Страхование",
-        "url": "http://www.vtbins.ru/"
-        }
-        },
-        {
-        "id": 68,
-        "code": "econom",
-        "name": "Econom+",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 32,
-        "code": "vtb",
-        "name": "ВТБ Страхование",
-        "url": "http://www.vtbins.ru/"
-        }
-        },
-        {
-        "id": 71,
-        "code": "standard",
-        "name": "Standard+",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 32,
-        "code": "vtb",
-        "name": "ВТБ Страхование",
-        "url": "http://www.vtbins.ru/"
-        }
-        },
-        {
-        "id": 73,
-        "code": "ATPartner",
-        "name": "Allianz Travel Partner",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 34,
-        "code": "allianz",
-        "name": "Allianz",
-        "url": "http://www.allianz.ru/"
-        }
-        },
-        {
-        "id": 76,
-        "code": "ATVacation",
-        "name": "Allianz Отпуск",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 34,
-        "code": "allianz",
-        "name": "Allianz",
-        "url": "http://www.allianz.ru/"
-        }
-        },
-        {
-        "id": 77,
-        "code": "econom",
-        "name": "ЭКОНОМ A",
-        "isLimited": 1,
-        "isFixed": 0,
-        "company": {
-        "id": 43,
-        "code": "liberty",
-        "name": "Liberty",
-        "url": "http://www.liberty24.ru/"
-        }
-        },
-        {
-        "id": 80,
-        "code": "standart",
-        "name": "СТАНДАРТ 80",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 43,
-        "code": "liberty",
-        "name": "Liberty",
-        "url": "http://www.liberty24.ru/"
-        }
-        },
-        {
-        "id": 92,
-        "code": 13349216,
-        "name": "За границу",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 35,
-        "code": "ingos",
-        "name": "Ингосстрах",
-        "url": "http://www.ingos.ru/"
-        }
-        },
-        {
-        "id": 105,
-        "code": "ECONOM-CLASS",
-        "name": "ВСК эконом",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 37,
-        "code": "vsk",
-        "name": "ВСК",
-        "url": "http://www.vsk.ru/"
-        }
-        },
-        {
-        "id": 108,
-        "code": "BUSINESS-CLASS",
-        "name": "ВСК бизнес",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 37,
-        "code": "vsk",
-        "name": "ВСК",
-        "url": "http://www.vsk.ru/"
-        }
-        },
-        {
-        "id": 111,
-        "code": "VIP-CLASS",
-        "name": "ВСК вип",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 37,
-        "code": "vsk",
-        "name": "ВСК",
-        "url": "http://www.vsk.ru/"
-        }
-        },
-        {
-        "id": 114,
-        "code": "ECONOM-CLASS-RUS",
-        "name": "ВСК эконом рус",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 37,
-        "code": "vsk",
-        "name": "ВСК",
-        "url": "http://www.vsk.ru/"
-        }
-        },
-        {
-        "id": 120,
-        "code": "zetta_n2",
-        "name": "N-2",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 40,
-        "code": "zetta",
-        "name": "Зетта Страхование",
-        "url": "http://zettains.ru/"
-        }
-        },
-        {
-        "id": 123,
-        "code": "zetta_n3",
-        "name": "N-3",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 40,
-        "code": "zetta",
-        "name": "Зетта Страхование",
-        "url": "http://zettains.ru/"
-        }
-        },
-        {
-        "id": 125,
-        "code": "zetta_n5",
-        "name": "N-5",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 40,
-        "code": "zetta",
-        "name": "Зетта Страхование",
-        "url": "http://zettains.ru/"
-        }
-        },
-        {
-        "id": 128,
-        "code": "zetta_n6",
-        "name": "N-6",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 40,
-        "code": "zetta",
-        "name": "Зетта Страхование",
-        "url": "http://zettains.ru/"
-        }
-        },
-        {
-        "id": 130,
-        "code": "zetta_n7",
-        "name": "N-7",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 40,
-        "code": "zetta",
-        "name": "Зетта Страхование",
-        "url": "http://zettains.ru/"
-        }
-        },
-        {
-        "id": 133,
-        "code": "zetta_n8",
-        "name": "N-8",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 40,
-        "code": "zetta",
-        "name": "Зетта Страхование",
-        "url": "http://zettains.ru/"
-        }
-        },
-        {
-        "id": 136,
-        "code": "zetta_n9",
-        "name": "N-9",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 40,
-        "code": "zetta",
-        "name": "Зетта Страхование",
-        "url": "http://zettains.ru/"
-        }
-        },
-        {
-        "id": 144,
-        "code": 15456816,
-        "name": "За границу многократные",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 35,
-        "code": "ingos",
-        "name": "Ингосстрах",
-        "url": "http://www.ingos.ru/"
-        }
-        },
-        {
-        "id": 159,
-        "code": "vzr.traveler",
-        "name": "ВЗР Упрощенный",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 44,
-        "code": "vazhno",
-        "name": "Важно",
-        "url": "https://www.vazhno.me/"
-        }
-        },
-        {
-        "id": 165,
-        "code": "vzr.delay",
-        "name": "Страхование на случай задержки рейса",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 44,
-        "code": "vazhno",
-        "name": "Важно",
-        "url": "https://www.vazhno.me/"
-        }
-        },
-        {
-        "id": 168,
-        "code": "vzr.flat",
-        "name": "Страхование квартиры на время поездки",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 44,
-        "code": "vazhno",
-        "name": "Важно",
-        "url": "https://www.vazhno.me/"
-        }
-        },
-        {
-        "id": 171,
-        "code": "vzr.late",
-        "name": "Страхование на случай опоздания на стыковку",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 44,
-        "code": "vazhno",
-        "name": "Важно",
-        "url": "https://www.vazhno.me/"
-        }
-        },
-        {
-        "id": 174,
-        "code": "vzr.luggage.delay",
-        "name": "Задержка багажа",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 44,
-        "code": "vazhno",
-        "name": "Важно",
-        "url": "https://www.vazhno.me/"
-        }
-        },
-        {
-        "id": 177,
-        "code": "vzr.luggage.flight",
-        "name": "Страхование багажа на время перелета",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 44,
-        "code": "vazhno",
-        "name": "Важно",
-        "url": "https://www.vazhno.me/"
-        }
-        },
-        {
-        "id": 180,
-        "code": "vzr.ns",
-        "name": "Страхование НС на время полета",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 44,
-        "code": "vazhno",
-        "name": "Важно",
-        "url": "https://www.vazhno.me/"
-        }
-        },
-        {
-        "id": 183,
-        "code": "vzr.luggage.hotel",
-        "name": "Страхование багажа в гостинице",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 44,
-        "code": "vazhno",
-        "name": "Важно",
-        "url": "https://www.vazhno.me/"
-        }
-        },
-        {
-        "id": 184,
-        "code": "reso_A",
-        "name": "A",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 48,
-        "code": "reso",
-        "name": "РЕСО",
-        "url": "http://www.reso.ru/"
-        }
-        },
-        {
-        "id": 185,
-        "code": "reso_B",
-        "name": "B",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 48,
-        "code": "reso",
-        "name": "РЕСО",
-        "url": "http://www.reso.ru/"
-        }
-        },
-        {
-        "id": 195,
-        "code": "tc_1",
-        "name": "ТС-1",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 198,
-        "code": "tc_2",
-        "name": "ТС-2",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 201,
-        "code": "tc_3",
-        "name": "ТС-3",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 204,
-        "code": "tc_4",
-        "name": "ТС-4",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 207,
-        "code": "tc_5",
-        "name": "ТС-5",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 210,
-        "code": "atc",
-        "name": "АТС",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 231,
-        "code": "5ed8deaf-0548-448f-b04e-28f3eaaaac6b",
-        "name": "Согласие Программа A",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 234,
-        "code": "192f819a-ebe5-4be9-bc93-ece0ba6e09ec",
-        "name": "Согласие Программа B",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 239,
-        "code": "ATHappy",
-        "name": "Allianz Travel Happy Trip",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 34,
-        "code": "allianz",
-        "name": "Allianz",
-        "url": "http://www.allianz.ru/"
-        }
-        },
-        {
-        "id": 241,
-        "code": "btc_3",
-        "name": "ВТС-3",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 244,
-        "code": "btc_5",
-        "name": "ВТС-5",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 247,
-        "code": "mtc_1",
-        "name": "МТС-1",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 250,
-        "code": "mtc_2",
-        "name": "МТС-2",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 253,
-        "code": "mtc_3",
-        "name": "МТС-3",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 256,
-        "code": "mtc_4",
-        "name": "МТС-4",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 259,
-        "code": "mtc_5",
-        "name": "МТС-5",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 52,
-        "code": "rstandart",
-        "name": "Русский Стандарт",
-        "url": "http://www.rsins.ru/"
-        }
-        },
-        {
-        "id": 260,
-        "code": "standart_ns",
-        "name": "СТАНДАРТ Несчастный случай",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 43,
-        "code": "liberty",
-        "name": "Liberty",
-        "url": "http://www.liberty24.ru/"
-        }
-        },
-        {
-        "id": 261,
-        "code": "standart_avia",
-        "name": "СТАНДАРТ  багаж",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 43,
-        "code": "liberty",
-        "name": "Liberty",
-        "url": "http://www.liberty24.ru/"
-        }
-        },
-        {
-        "id": 262,
-        "code": "standart_civil",
-        "name": "СТАНДАРТ Гражданская отвественность",
-        "isLimited": 0,
-        "isFixed": 1,
-        "company": {
-        "id": 43,
-        "code": "liberty",
-        "name": "Liberty",
-        "url": "http://www.liberty24.ru/"
-        }
-        },
-        {
-        "id": 267,
-        "code": "83a01fd0-eee4-45f6-909c-ebc3ab25f6bd",
-        "name": "Согласие Программа C",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 270,
-        "code": "dd04475a-f7d5-409e-94ac-628306d69f16",
-        "name": "Согласие Программа D",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 273,
-        "code": "2ba0459d-6991-4486-9971-63857bf72616",
-        "name": "Согласие Программа E",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 277,
-        "code": 4171,
-        "name": "DI Разовый 030 E",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 280,
-        "code": 4179,
-        "name": "DI Разовый 050  E",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 283,
-        "code": 4188,
-        "name": "DI Разовый 100  E",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 287,
-        "code": 4334,
-        "name": "DI Многократный 030  E",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 289,
-        "code": 4396,
-        "name": "DI Многократный 050  E",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 291,
-        "code": 4410,
-        "name": "DI Многократный 100  E",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 293,
-        "code": "6850ba52-b49c-4131-8b56-abb1c0053372",
-        "name": "Согласие Программа A  I",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 295,
-        "code": "949f9245-7ece-4f07-9fd0-dab4c1c4aa63",
-        "name": "Согласие Программа A II",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 297,
-        "code": "c55a288a-0eca-4cdf-9fa4-228e355e91c7",
-        "name": "Согласие Программа A III",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 299,
-        "code": "b9db18f9-7c0d-4b98-ad2a-d1cd12bb59a9",
-        "name": "Согласие Программа B  I",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 301,
-        "code": "cceb647a-eea5-4bc6-9ad7-95826f05d796",
-        "name": "Согласие Программа B II",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 303,
-        "code": "c5b9983f-f9af-4ad0-97bc-621943229ad1",
-        "name": "Согласие Программа B III",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 51,
-        "code": "soglasie",
-        "name": "Согласие",
-        "url": "http://www.soglasie.ru/"
-        }
-        },
-        {
-        "id": 304,
-        "code": "zetta_nb3",
-        "name": "NB-3",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 40,
-        "code": "zetta",
-        "name": "Зетта Страхование",
-        "url": "http://zettains.ru/"
-        }
-        },
-        {
-        "id": 307,
-        "code": "zetta_nb5",
-        "name": "NB-5",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 40,
-        "code": "zetta",
-        "name": "Зетта Страхование",
-        "url": "http://zettains.ru/"
-        }
-        },
-        {
-        "id": 310,
-        "code": "zetta_multi",
-        "name": "MULTI",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 40,
-        "code": "zetta",
-        "name": "Зетта Страхование",
-        "url": "http://zettains.ru/"
-        }
-        },
-        {
-        "id": 348,
-        "code": 4171,
-        "name": "DI Разовый 030 D",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 351,
-        "code": 4179,
-        "name": "DI Разовый 050  D",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 354,
-        "code": 4188,
-        "name": "DI Разовый 100  D",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 357,
-        "code": 4334,
-        "name": "DI Многократный 030  D",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 360,
-        "code": 4396,
-        "name": "DI Многократный 050  D",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 363,
-        "code": 4410,
-        "name": "DI Многократный 100  D",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 47,
-        "code": "renins",
-        "name": "Ренессанс",
-        "url": "http://www.renins.com/"
-        }
-        },
-        {
-        "id": 364,
-        "code": "A",
-        "name": "Открытие Программа А",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 55,
-        "code": "otkritie",
-        "name": "Опора Страхование",
-        "url": "http://www.otkritie-ins.ru/"
-        }
-        },
-        {
-        "id": 367,
-        "code": "B",
-        "name": "Открытие Программа В",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 55,
-        "code": "otkritie",
-        "name": "Опора Страхование",
-        "url": "http://www.otkritie-ins.ru/"
-        }
-        },
-        {
-        "id": 370,
-        "code": "C",
-        "name": "Открытие Программа С",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 55,
-        "code": "otkritie",
-        "name": "Опора Страхование",
-        "url": "http://www.otkritie-ins.ru/"
-        }
-        },
-        {
-        "id": 373,
-        "code": "ADD",
-        "name": "Отмена поездки Плюс",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 1,
-        "code": "erv",
-        "name": "ERV",
-        "url": "http://www.erv.ru/"
-        }
-        }
-        ]
-        }
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+            "status": 200,
+            "insuranceProduct": [
+                    {
+                     "id": 1,
+                     "code": "B",
+                      "name": "Стандарт Плюс",
+                      "isLimited": 0,
+                      "isFixed": 0,
+                      "company": {
+                              "id": 1,
+                              "code": "erv",
+                              "name": "ERV",
+                              "url": "http://www.erv.ru/"
+                              }
+                    },
+                    {
+            "id": 4,
+            "code": "OPI",
+            "name": "OPTIMA",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 1,
+            "code": "erv",
+            "name": "ERV",
+            "url": "http://www.erv.ru/"
+            }
+            },
+            {
+            "id": 6,
+            "code": "B",
+            "name": "АльфаТревел Эконом",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 23,
+            "code": "alfa",
+            "name": "АльфаСтрахование",
+            "url": "http://www.alfastrah.ru/"
+            }
+            },
+            {
+            "id": 9,
+            "code": "C",
+            "name": "АльфаТревел Классик",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 23,
+            "code": "alfa",
+            "name": "АльфаСтрахование",
+            "url": "http://www.alfastrah.ru/"
+            }
+            },
+            {
+            "id": 12,
+            "code": "D",
+            "name": "АльфаТревел Авто",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 23,
+            "code": "alfa",
+            "name": "АльфаСтрахование",
+            "url": "http://www.alfastrah.ru/"
+            }
+            },
+            {
+            "id": 15,
+            "code": "V",
+            "name": "АльфаТревел Бизнес (V.I.P.)",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 23,
+            "code": "alfa",
+            "name": "АльфаСтрахование",
+            "url": "http://www.alfastrah.ru/"
+            }
+            },
+            {
+            "id": 18,
+            "code": "M",
+            "name": "АльфаТревел MULTI",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 23,
+            "code": "alfa",
+            "name": "АльфаСтрахование",
+            "url": "http://www.alfastrah.ru/"
+            }
+            },
+            {
+            "id": 29,
+            "code": "E",
+            "name": "АльфаТревел Премиум",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 23,
+            "code": "alfa",
+            "name": "АльфаСтрахование",
+            "url": "http://www.alfastrah.ru/"
+            }
+            },
+            {
+            "id": 30,
+            "code": "OA",
+            "name": "OPTIMA-Годовой",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 1,
+            "code": "erv",
+            "name": "ERV",
+            "url": "http://www.erv.ru/"
+            }
+            },
+            {
+            "id": 38,
+            "code": "PartnerTravelBox",
+            "name": "CherehapaFullTravel",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 29,
+            "code": "tinkoff",
+            "name": "Тинькофф Страхование",
+            "url": "https://www.tinkoffinsurance.ru/"
+            }
+            },
+            {
+            "id": 39,
+            "code": "f96e230d-fedf-4600-8b9c-56faeca76a37",
+            "name": "Эконом",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 26,
+            "code": "rgs",
+            "name": "Росгосстрах",
+            "url": "http://www.rgs.ru/"
+            }
+            },
+            {
+            "id": 42,
+            "code": "00b2e9b1-58ec-4c03-8e30-41e776249bdf",
+            "name": "Стандарт",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 26,
+            "code": "rgs",
+            "name": "Росгосстрах",
+            "url": "http://www.rgs.ru/"
+            }
+            },
+            {
+            "id": 45,
+            "code": "cc6ddb1e-efc2-4425-a8bf-368adec3b0a0",
+            "name": "Комфорт",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 26,
+            "code": "rgs",
+            "name": "Росгосстрах",
+            "url": "http://www.rgs.ru/"
+            }
+            },
+            {
+            "id": 48,
+            "code": "740ab743-bfc8-4e14-b9dd-c9216b1caa20",
+            "name": "Премиум",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 26,
+            "code": "rgs",
+            "name": "Росгосстрах",
+            "url": "http://www.rgs.ru/"
+            }
+            },
+            {
+            "id": 50,
+            "code": "82f2e10a-6799-4dea-b583-ab714dbc77b1",
+            "name": "1R Эконом",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 26,
+            "code": "rgs",
+            "name": "Росгосстрах",
+            "url": "http://www.rgs.ru/"
+            }
+            },
+            {
+            "id": 53,
+            "code": "f7d4bc58-b88b-4d0e-9b21-4e7281b41e3f",
+            "name": "2R Комфорт",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 26,
+            "code": "rgs",
+            "name": "Росгосстрах",
+            "url": "http://www.rgs.ru/"
+            }
+            },
+            {
+            "id": 56,
+            "code": "a23733b1-7eb7-4515-acc7-44b14665a5d2",
+            "name": "3R Премиум",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 26,
+            "code": "rgs",
+            "name": "Росгосстрах",
+            "url": "http://www.rgs.ru/"
+            }
+            },
+            {
+            "id": 57,
+            "code": "econom",
+            "name": "Econom",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 32,
+            "code": "vtb",
+            "name": "ВТБ Страхование",
+            "url": "http://www.vtbins.ru/"
+            }
+            },
+            {
+            "id": 60,
+            "code": "standard",
+            "name": "Standard",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 32,
+            "code": "vtb",
+            "name": "ВТБ Страхование",
+            "url": "http://www.vtbins.ru/"
+            }
+            },
+            {
+            "id": 61,
+            "code": "vtbCancel",
+            "name": "Страхование на случай отмены поездки",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 32,
+            "code": "vtb",
+            "name": "ВТБ Страхование",
+            "url": "http://www.vtbins.ru/"
+            }
+            },
+            {
+            "id": 64,
+            "code": "vtbDelay",
+            "name": "Страхование на случай задержки рейса",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 32,
+            "code": "vtb",
+            "name": "ВТБ Страхование",
+            "url": "http://www.vtbins.ru/"
+            }
+            },
+            {
+            "id": 67,
+            "code": "vtbAvia",
+            "name": "Страхование на время перелета",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 32,
+            "code": "vtb",
+            "name": "ВТБ Страхование",
+            "url": "http://www.vtbins.ru/"
+            }
+            },
+            {
+            "id": 68,
+            "code": "econom",
+            "name": "Econom+",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 32,
+            "code": "vtb",
+            "name": "ВТБ Страхование",
+            "url": "http://www.vtbins.ru/"
+            }
+            },
+            {
+            "id": 71,
+            "code": "standard",
+            "name": "Standard+",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 32,
+            "code": "vtb",
+            "name": "ВТБ Страхование",
+            "url": "http://www.vtbins.ru/"
+            }
+            },
+            {
+            "id": 73,
+            "code": "ATPartner",
+            "name": "Allianz Travel Partner",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 34,
+            "code": "allianz",
+            "name": "Allianz",
+            "url": "http://www.allianz.ru/"
+            }
+            },
+            {
+            "id": 76,
+            "code": "ATVacation",
+            "name": "Allianz Отпуск",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 34,
+            "code": "allianz",
+            "name": "Allianz",
+            "url": "http://www.allianz.ru/"
+            }
+            },
+            {
+            "id": 77,
+            "code": "econom",
+            "name": "ЭКОНОМ A",
+            "isLimited": 1,
+            "isFixed": 0,
+            "company": {
+            "id": 43,
+            "code": "liberty",
+            "name": "Liberty",
+            "url": "http://www.liberty24.ru/"
+            }
+            },
+            {
+            "id": 80,
+            "code": "standart",
+            "name": "СТАНДАРТ 80",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 43,
+            "code": "liberty",
+            "name": "Liberty",
+            "url": "http://www.liberty24.ru/"
+            }
+            },
+            {
+            "id": 92,
+            "code": 13349216,
+            "name": "За границу",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 35,
+            "code": "ingos",
+            "name": "Ингосстрах",
+            "url": "http://www.ingos.ru/"
+            }
+            },
+            {
+            "id": 105,
+            "code": "ECONOM-CLASS",
+            "name": "ВСК эконом",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 37,
+            "code": "vsk",
+            "name": "ВСК",
+            "url": "http://www.vsk.ru/"
+            }
+            },
+            {
+            "id": 108,
+            "code": "BUSINESS-CLASS",
+            "name": "ВСК бизнес",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 37,
+            "code": "vsk",
+            "name": "ВСК",
+            "url": "http://www.vsk.ru/"
+            }
+            },
+            {
+            "id": 111,
+            "code": "VIP-CLASS",
+            "name": "ВСК вип",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 37,
+            "code": "vsk",
+            "name": "ВСК",
+            "url": "http://www.vsk.ru/"
+            }
+            },
+            {
+            "id": 114,
+            "code": "ECONOM-CLASS-RUS",
+            "name": "ВСК эконом рус",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 37,
+            "code": "vsk",
+            "name": "ВСК",
+            "url": "http://www.vsk.ru/"
+            }
+            },
+            {
+            "id": 120,
+            "code": "zetta_n2",
+            "name": "N-2",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 40,
+            "code": "zetta",
+            "name": "Зетта Страхование",
+            "url": "http://zettains.ru/"
+            }
+            },
+            {
+            "id": 123,
+            "code": "zetta_n3",
+            "name": "N-3",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 40,
+            "code": "zetta",
+            "name": "Зетта Страхование",
+            "url": "http://zettains.ru/"
+            }
+            },
+            {
+            "id": 125,
+            "code": "zetta_n5",
+            "name": "N-5",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 40,
+            "code": "zetta",
+            "name": "Зетта Страхование",
+            "url": "http://zettains.ru/"
+            }
+            },
+            {
+            "id": 128,
+            "code": "zetta_n6",
+            "name": "N-6",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 40,
+            "code": "zetta",
+            "name": "Зетта Страхование",
+            "url": "http://zettains.ru/"
+            }
+            },
+            {
+            "id": 130,
+            "code": "zetta_n7",
+            "name": "N-7",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 40,
+            "code": "zetta",
+            "name": "Зетта Страхование",
+            "url": "http://zettains.ru/"
+            }
+            },
+            {
+            "id": 133,
+            "code": "zetta_n8",
+            "name": "N-8",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 40,
+            "code": "zetta",
+            "name": "Зетта Страхование",
+            "url": "http://zettains.ru/"
+            }
+            },
+            {
+            "id": 136,
+            "code": "zetta_n9",
+            "name": "N-9",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 40,
+            "code": "zetta",
+            "name": "Зетта Страхование",
+            "url": "http://zettains.ru/"
+            }
+            },
+            {
+            "id": 144,
+            "code": 15456816,
+            "name": "За границу многократные",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 35,
+            "code": "ingos",
+            "name": "Ингосстрах",
+            "url": "http://www.ingos.ru/"
+            }
+            },
+            {
+            "id": 159,
+            "code": "vzr.traveler",
+            "name": "ВЗР Упрощенный",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 44,
+            "code": "vazhno",
+            "name": "Важно",
+            "url": "https://www.vazhno.me/"
+            }
+            },
+            {
+            "id": 165,
+            "code": "vzr.delay",
+            "name": "Страхование на случай задержки рейса",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 44,
+            "code": "vazhno",
+            "name": "Важно",
+            "url": "https://www.vazhno.me/"
+            }
+            },
+            {
+            "id": 168,
+            "code": "vzr.flat",
+            "name": "Страхование квартиры на время поездки",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 44,
+            "code": "vazhno",
+            "name": "Важно",
+            "url": "https://www.vazhno.me/"
+            }
+            },
+            {
+            "id": 171,
+            "code": "vzr.late",
+            "name": "Страхование на случай опоздания на стыковку",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 44,
+            "code": "vazhno",
+            "name": "Важно",
+            "url": "https://www.vazhno.me/"
+            }
+            },
+            {
+            "id": 174,
+            "code": "vzr.luggage.delay",
+            "name": "Задержка багажа",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 44,
+            "code": "vazhno",
+            "name": "Важно",
+            "url": "https://www.vazhno.me/"
+            }
+            },
+            {
+            "id": 177,
+            "code": "vzr.luggage.flight",
+            "name": "Страхование багажа на время перелета",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 44,
+            "code": "vazhno",
+            "name": "Важно",
+            "url": "https://www.vazhno.me/"
+            }
+            },
+            {
+            "id": 180,
+            "code": "vzr.ns",
+            "name": "Страхование НС на время полета",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 44,
+            "code": "vazhno",
+            "name": "Важно",
+            "url": "https://www.vazhno.me/"
+            }
+            },
+            {
+            "id": 183,
+            "code": "vzr.luggage.hotel",
+            "name": "Страхование багажа в гостинице",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 44,
+            "code": "vazhno",
+            "name": "Важно",
+            "url": "https://www.vazhno.me/"
+            }
+            },
+            {
+            "id": 184,
+            "code": "reso_A",
+            "name": "A",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 48,
+            "code": "reso",
+            "name": "РЕСО",
+            "url": "http://www.reso.ru/"
+            }
+            },
+            {
+            "id": 185,
+            "code": "reso_B",
+            "name": "B",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 48,
+            "code": "reso",
+            "name": "РЕСО",
+            "url": "http://www.reso.ru/"
+            }
+            },
+            {
+            "id": 195,
+            "code": "tc_1",
+            "name": "ТС-1",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 198,
+            "code": "tc_2",
+            "name": "ТС-2",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 201,
+            "code": "tc_3",
+            "name": "ТС-3",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 204,
+            "code": "tc_4",
+            "name": "ТС-4",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 207,
+            "code": "tc_5",
+            "name": "ТС-5",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 210,
+            "code": "atc",
+            "name": "АТС",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 231,
+            "code": "5ed8deaf-0548-448f-b04e-28f3eaaaac6b",
+            "name": "Согласие Программа A",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 234,
+            "code": "192f819a-ebe5-4be9-bc93-ece0ba6e09ec",
+            "name": "Согласие Программа B",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 239,
+            "code": "ATHappy",
+            "name": "Allianz Travel Happy Trip",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 34,
+            "code": "allianz",
+            "name": "Allianz",
+            "url": "http://www.allianz.ru/"
+            }
+            },
+            {
+            "id": 241,
+            "code": "btc_3",
+            "name": "ВТС-3",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 244,
+            "code": "btc_5",
+            "name": "ВТС-5",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 247,
+            "code": "mtc_1",
+            "name": "МТС-1",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 250,
+            "code": "mtc_2",
+            "name": "МТС-2",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 253,
+            "code": "mtc_3",
+            "name": "МТС-3",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 256,
+            "code": "mtc_4",
+            "name": "МТС-4",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 259,
+            "code": "mtc_5",
+            "name": "МТС-5",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 52,
+            "code": "rstandart",
+            "name": "Русский Стандарт",
+            "url": "http://www.rsins.ru/"
+            }
+            },
+            {
+            "id": 260,
+            "code": "standart_ns",
+            "name": "СТАНДАРТ Несчастный случай",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 43,
+            "code": "liberty",
+            "name": "Liberty",
+            "url": "http://www.liberty24.ru/"
+            }
+            },
+            {
+            "id": 261,
+            "code": "standart_avia",
+            "name": "СТАНДАРТ  багаж",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 43,
+            "code": "liberty",
+            "name": "Liberty",
+            "url": "http://www.liberty24.ru/"
+            }
+            },
+            {
+            "id": 262,
+            "code": "standart_civil",
+            "name": "СТАНДАРТ Гражданская отвественность",
+            "isLimited": 0,
+            "isFixed": 1,
+            "company": {
+            "id": 43,
+            "code": "liberty",
+            "name": "Liberty",
+            "url": "http://www.liberty24.ru/"
+            }
+            },
+            {
+            "id": 267,
+            "code": "83a01fd0-eee4-45f6-909c-ebc3ab25f6bd",
+            "name": "Согласие Программа C",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 270,
+            "code": "dd04475a-f7d5-409e-94ac-628306d69f16",
+            "name": "Согласие Программа D",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 273,
+            "code": "2ba0459d-6991-4486-9971-63857bf72616",
+            "name": "Согласие Программа E",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 277,
+            "code": 4171,
+            "name": "DI Разовый 030 E",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 280,
+            "code": 4179,
+            "name": "DI Разовый 050  E",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 283,
+            "code": 4188,
+            "name": "DI Разовый 100  E",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 287,
+            "code": 4334,
+            "name": "DI Многократный 030  E",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 289,
+            "code": 4396,
+            "name": "DI Многократный 050  E",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 291,
+            "code": 4410,
+            "name": "DI Многократный 100  E",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 293,
+            "code": "6850ba52-b49c-4131-8b56-abb1c0053372",
+            "name": "Согласие Программа A  I",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 295,
+            "code": "949f9245-7ece-4f07-9fd0-dab4c1c4aa63",
+            "name": "Согласие Программа A II",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 297,
+            "code": "c55a288a-0eca-4cdf-9fa4-228e355e91c7",
+            "name": "Согласие Программа A III",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 299,
+            "code": "b9db18f9-7c0d-4b98-ad2a-d1cd12bb59a9",
+            "name": "Согласие Программа B  I",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 301,
+            "code": "cceb647a-eea5-4bc6-9ad7-95826f05d796",
+            "name": "Согласие Программа B II",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 303,
+            "code": "c5b9983f-f9af-4ad0-97bc-621943229ad1",
+            "name": "Согласие Программа B III",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 51,
+            "code": "soglasie",
+            "name": "Согласие",
+            "url": "http://www.soglasie.ru/"
+            }
+            },
+            {
+            "id": 304,
+            "code": "zetta_nb3",
+            "name": "NB-3",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 40,
+            "code": "zetta",
+            "name": "Зетта Страхование",
+            "url": "http://zettains.ru/"
+            }
+            },
+            {
+            "id": 307,
+            "code": "zetta_nb5",
+            "name": "NB-5",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 40,
+            "code": "zetta",
+            "name": "Зетта Страхование",
+            "url": "http://zettains.ru/"
+            }
+            },
+            {
+            "id": 310,
+            "code": "zetta_multi",
+            "name": "MULTI",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 40,
+            "code": "zetta",
+            "name": "Зетта Страхование",
+            "url": "http://zettains.ru/"
+            }
+            },
+            {
+            "id": 348,
+            "code": 4171,
+            "name": "DI Разовый 030 D",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 351,
+            "code": 4179,
+            "name": "DI Разовый 050  D",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 354,
+            "code": 4188,
+            "name": "DI Разовый 100  D",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 357,
+            "code": 4334,
+            "name": "DI Многократный 030  D",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 360,
+            "code": 4396,
+            "name": "DI Многократный 050  D",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 363,
+            "code": 4410,
+            "name": "DI Многократный 100  D",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 47,
+            "code": "renins",
+            "name": "Ренессанс",
+            "url": "http://www.renins.com/"
+            }
+            },
+            {
+            "id": 364,
+            "code": "A",
+            "name": "Открытие Программа А",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 55,
+            "code": "otkritie",
+            "name": "Опора Страхование",
+            "url": "http://www.otkritie-ins.ru/"
+            }
+            },
+            {
+            "id": 367,
+            "code": "B",
+            "name": "Открытие Программа В",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 55,
+            "code": "otkritie",
+            "name": "Опора Страхование",
+            "url": "http://www.otkritie-ins.ru/"
+            }
+            },
+            {
+            "id": 370,
+            "code": "C",
+            "name": "Открытие Программа С",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 55,
+            "code": "otkritie",
+            "name": "Опора Страхование",
+            "url": "http://www.otkritie-ins.ru/"
+            }
+            },
+            {
+            "id": 373,
+            "code": "ADD",
+            "name": "Отмена поездки Плюс",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 1,
+            "code": "erv",
+            "name": "ERV",
+            "url": "http://www.erv.ru/"
+            }
+            }
+            ]
+            }
 
     + Schema
 
@@ -2241,434 +2322,440 @@ FIXME: везде тип "code" должен быть строкой, сейча
 
 FIXME: поле "multiplierType":"null", из "calcRulesGroup" в ответе на GET /insuranceProduct/id будет удалено , также будут удалены объекты "caclRulesGroup" , "useRulesGroup" .
 
-+ Response 200 (application/json; charset=utf-8)
++ Response 200
 
-        {
-        "status": 200,
-        "insuranceProduct": {
-        "id": 1,
-        "code": "B",
-        "name": "Стандарт Плюс",
-        "isLimited": 0,
-        "isFixed": 0,
-        "company": {
-        "id": 1,
-        "code": "erv",
-        "name": "ERV",
-        "url": "http://www.erv.ru/"
-        },
-        "insuranceSubProduct": [
-        {
-        "id": 3,
-        "name": "Стандарт Плюс T-II 50000, 100000",
-        "isActive": 1,
-        "useRulesGroup": [
-        [
-        "(data[\"territory\"].indexOf(\"t2\")!=-1 && data.territoriesSuccess.push(\"t2\") || data[\"territory\"].indexOf(\"t4\")!=-1 && data.territoriesSuccess.push(\"t4\"))"
-        ],
-        [
-        "(service[\"medicine\"]>30000)"
-        ],
-        [
-        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
-        ],
-        [
-        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
-        ],
-        [
-        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
-        ],
-        [
-        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
-        ],
-        [
-        "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
-        ]
-        ],
-        "calcRulesGroup": [
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "3E4<service.medicine&&(result[1]+=reference.search8(service.medicine,{idCalcRules:110,result:0,serviceId:1})*data.insuredDays);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
-        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
-        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
-        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
-        ]
-        }
-        ]
-        },
-        {
-        "id": 6,
-        "name": "Стандарт Плюс T-I 30000, 50000",
-        "isActive": 1,
-        "useRulesGroup": [
-        [
-        "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
-        ],
-        [
-        "(service[\"medicine\"]<100000&&service[\"medicine\"]>30000)"
-        ],
-        [
-        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
-        ],
-        [
-        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
-        ],
-        [
-        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
-        ],
-        [
-        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
-        ],
-        [
-        "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
-        ]
-        ],
-        "calcRulesGroup": [
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
-        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
-        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
-        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
-        ]
-        }
-        ]
-        },
-        {
-        "id": 9,
-        "name": "Стандарт Плюс T-III 30000",
-        "isActive": 1,
-        "useRulesGroup": [
-        [
-        "(data[\"territory\"].indexOf(\"t3\")!=-1 && data.territoriesSuccess.push(\"t3\"))"
-        ],
-        [
-        "(service[\"medicine\"]==30000)"
-        ],
-        [
-        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
-        ],
-        [
-        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
-        ],
-        [
-        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
-        ],
-        [
-        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
-        ],
-        [
-        "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
-        ]
-        ],
-        "calcRulesGroup": [
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "3E4==service.medicine&&(result[1]+=reference.search14(service.medicine,{idCalcRules:122,result:0,serviceId:1})*data.insuredDays);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
-        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
-        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
-        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
-        ]
-        }
-        ]
-        },
-        {
-        "id": 741,
-        "name": "Стандарт Плюс T-II 50000, 100000 + Отмена поездки",
-        "isActive": 1,
-        "useRulesGroup": [
-        [
-        "(data[\"territory\"].indexOf(\"t2\")!=-1 && data.territoriesSuccess.push(\"t2\") || data[\"territory\"].indexOf(\"t4\")!=-1 && data.territoriesSuccess.push(\"t4\"))"
-        ],
-        [
-        "(service[\"medicine\"]>30000)"
-        ],
-        [
-        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
-        ],
-        [
-        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
-        ],
-        [
-        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
-        ],
-        [
-        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
-        ],
-        [
-        "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
-        ]
-        ],
-        "calcRulesGroup": [
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "3E4<service.medicine&&(result[1]+=reference.search8(service.medicine,{idCalcRules:110,result:0,serviceId:1})*data.insuredDays);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
-        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
-        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
-        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
-        ]
-        }
-        ]
-        },
-        {
-        "id": 744,
-        "name": "Стандарт Плюс T-I 30000, 50000 + Отмена поездки",
-        "isActive": 1,
-        "useRulesGroup": [
-        [
-        "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
-        ],
-        [
-        "(service[\"medicine\"]<100000&&service[\"medicine\"]>30000)"
-        ],
-        [
-        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
-        ],
-        [
-        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
-        ],
-        [
-        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
-        ],
-        [
-        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
-        ],
-        [
-        "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
-        ]
-        ],
-        "calcRulesGroup": [
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
-        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
-        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
-        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
-        ]
-        }
-        ]
-        },
-        {
-        "id": 747,
-        "name": "Стандарт Плюс T-III 30000 + Отмена поездки",
-        "isActive": 1,
-        "useRulesGroup": [
-        [
-        "(data[\"territory\"].indexOf(\"t3\")!=-1 && data.territoriesSuccess.push(\"t3\"))"
-        ],
-        [
-        "(service[\"medicine\"]==30000)"
-        ],
-        [
-        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
-        ],
-        [
-        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
-        ],
-        [
-        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
-        ],
-        [
-        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
-        ],
-        [
-        "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
-        ]
-        ],
-        "calcRulesGroup": [
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "3E4==service.medicine&&(result[1]+=reference.search14(service.medicine,{idCalcRules:122,result:0,serviceId:1})*data.insuredDays);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
-        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
-        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
-        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
-        ]
-        }
-        ]
-        },
-        {
-        "id": 807,
-        "name": "Стандарт Плюс T-I 30000 Evro",
-        "isActive": 1,
-        "useRulesGroup": [
-        [
-        "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
-        ],
-        [
-        "(service[\"medicine\"]==30000)"
-        ],
-        [
-        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
-        ],
-        [
-        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
-        ],
-        [
-        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
-        ],
-        [
-        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
-        ],
-        [
-        "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
-        ]
-        ],
-        "calcRulesGroup": [
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
-        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
-        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
-        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
-        ]
-        }
-        ]
-        },
-        {
-        "id": 808,
-        "name": "Стандарт Плюс T-I 30000 Evro + Отмена поездки",
-        "isActive": 1,
-        "useRulesGroup": [
-        [
-        "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
-        ],
-        [
-        "(service[\"medicine\"]==30000)"
-        ],
-        [
-        "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
-        ],
-        [
-        "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
-        ],
-        [
-        "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
-        ],
-        [
-        "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
-        ],
-        [
-        "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
-        ]
-        ],
-        "calcRulesGroup": [
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
-        "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
-        "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
-        "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
-        ]
-        },
-        {
-        "multiplierType": null,
-        "calcRule": [
-        "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
-        ]
-        }
-        ]
-        }
-        ]
-        }
-        }
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+            "status": 200,
+            "insuranceProduct": {
+            "id": 1,
+            "code": "B",
+            "name": "Стандарт Плюс",
+            "isLimited": 0,
+            "isFixed": 0,
+            "company": {
+            "id": 1,
+            "code": "erv",
+            "name": "ERV",
+            "url": "http://www.erv.ru/"
+            },
+            "insuranceSubProduct": [
+            {
+            "id": 3,
+            "name": "Стандарт Плюс T-II 50000, 100000",
+            "isActive": 1,
+            "useRulesGroup": [
+            [
+            "(data[\"territory\"].indexOf(\"t2\")!=-1 && data.territoriesSuccess.push(\"t2\") || data[\"territory\"].indexOf(\"t4\")!=-1 && data.territoriesSuccess.push(\"t4\"))"
+            ],
+            [
+            "(service[\"medicine\"]>30000)"
+            ],
+            [
+            "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+            ],
+            [
+            "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+            ],
+            [
+            "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+            ],
+            [
+            "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+            ],
+            [
+            "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
+            ]
+            ],
+            "calcRulesGroup": [
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "3E4<service.medicine&&(result[1]+=reference.search8(service.medicine,{idCalcRules:110,result:0,serviceId:1})*data.insuredDays);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+            "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+            "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+            "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+            ]
+            }
+            ]
+            },
+            {
+            "id": 6,
+            "name": "Стандарт Плюс T-I 30000, 50000",
+            "isActive": 1,
+            "useRulesGroup": [
+            [
+            "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
+            ],
+            [
+            "(service[\"medicine\"]<100000&&service[\"medicine\"]>30000)"
+            ],
+            [
+            "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+            ],
+            [
+            "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+            ],
+            [
+            "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+            ],
+            [
+            "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+            ],
+            [
+            "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
+            ]
+            ],
+            "calcRulesGroup": [
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+            "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+            "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+            "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+            ]
+            }
+            ]
+            },
+            {
+            "id": 9,
+            "name": "Стандарт Плюс T-III 30000",
+            "isActive": 1,
+            "useRulesGroup": [
+            [
+            "(data[\"territory\"].indexOf(\"t3\")!=-1 && data.territoriesSuccess.push(\"t3\"))"
+            ],
+            [
+            "(service[\"medicine\"]==30000)"
+            ],
+            [
+            "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+            ],
+            [
+            "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+            ],
+            [
+            "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+            ],
+            [
+            "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+            ],
+            [
+            "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
+            ]
+            ],
+            "calcRulesGroup": [
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "3E4==service.medicine&&(result[1]+=reference.search14(service.medicine,{idCalcRules:122,result:0,serviceId:1})*data.insuredDays);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+            "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+            "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+            "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+            ]
+            }
+            ]
+            },
+            {
+            "id": 741,
+            "name": "Стандарт Плюс T-II 50000, 100000 + Отмена поездки",
+            "isActive": 1,
+            "useRulesGroup": [
+            [
+            "(data[\"territory\"].indexOf(\"t2\")!=-1 && data.territoriesSuccess.push(\"t2\") || data[\"territory\"].indexOf(\"t4\")!=-1 && data.territoriesSuccess.push(\"t4\"))"
+            ],
+            [
+            "(service[\"medicine\"]>30000)"
+            ],
+            [
+            "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+            ],
+            [
+            "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+            ],
+            [
+            "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+            ],
+            [
+            "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+            ],
+            [
+            "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
+            ]
+            ],
+            "calcRulesGroup": [
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "3E4<service.medicine&&(result[1]+=reference.search8(service.medicine,{idCalcRules:110,result:0,serviceId:1})*data.insuredDays);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+            "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+            "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+            "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+            ]
+            }
+            ]
+            },
+            {
+            "id": 744,
+            "name": "Стандарт Плюс T-I 30000, 50000 + Отмена поездки",
+            "isActive": 1,
+            "useRulesGroup": [
+            [
+            "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
+            ],
+            [
+            "(service[\"medicine\"]<100000&&service[\"medicine\"]>30000)"
+            ],
+            [
+            "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+            ],
+            [
+            "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+            ],
+            [
+            "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+            ],
+            [
+            "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+            ],
+            [
+            "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
+            ]
+            ],
+            "calcRulesGroup": [
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+            "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+            "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+            "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+            ]
+            }
+            ]
+            },
+            {
+            "id": 747,
+            "name": "Стандарт Плюс T-III 30000 + Отмена поездки",
+            "isActive": 1,
+            "useRulesGroup": [
+            [
+            "(data[\"territory\"].indexOf(\"t3\")!=-1 && data.territoriesSuccess.push(\"t3\"))"
+            ],
+            [
+            "(service[\"medicine\"]==30000)"
+            ],
+            [
+            "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+            ],
+            [
+            "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+            ],
+            [
+            "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+            ],
+            [
+            "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+            ],
+            [
+            "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
+            ]
+            ],
+            "calcRulesGroup": [
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "3E4==service.medicine&&(result[1]+=reference.search14(service.medicine,{idCalcRules:122,result:0,serviceId:1})*data.insuredDays);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+            "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+            "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+            "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+            ]
+            }
+            ]
+            },
+            {
+            "id": 807,
+            "name": "Стандарт Плюс T-I 30000 Evro",
+            "isActive": 1,
+            "useRulesGroup": [
+            [
+            "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
+            ],
+            [
+            "(service[\"medicine\"]==30000)"
+            ],
+            [
+            "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+            ],
+            [
+            "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+            ],
+            [
+            "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+            ],
+            [
+            "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+            ],
+            [
+            "((service[\"tripCancel\"]==0||service[\"tripCancel\"]==undefined) || (service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))<5))"
+            ]
+            ],
+            "calcRulesGroup": [
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+            "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+            "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+            "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+            ]
+            }
+            ]
+            },
+            {
+            "id": 808,
+            "name": "Стандарт Плюс T-I 30000 Evro + Отмена поездки",
+            "isActive": 1,
+            "useRulesGroup": [
+            [
+            "(data[\"territory\"].indexOf(\"t1\")!=-1 && data.territoriesSuccess.push(\"t1\"))"
+            ],
+            [
+            "(service[\"medicine\"]==30000)"
+            ],
+            [
+            "((service[\"multipolicy\"]==0||service[\"multipolicy\"]==undefined))"
+            ],
+            [
+            "((data[\"dateStart\"].setHours(0,0,0,0) != (new Date).setHours(0,0,0,0)))"
+            ],
+            [
+            "((service[\"pregnancy\"]==0||service[\"pregnancy\"]==undefined) ||  (service[\"pregnancy\"]>0&&data[\"insuredDays\"]<=10))"
+            ],
+            [
+            "((service[\"abroad\"]==0||service[\"abroad\"]==undefined))"
+            ],
+            [
+            "(service[\"tripCancel\"]>0&&(Math.ceil( (data[\"dateStart\"].getTime() - (new Date).getTime()) / (1000 * 86400)))>=5)"
+            ]
+            ],
+            "calcRulesGroup": [
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "1E5>service.medicine&&(result[1]+=reference.search2(service.medicine,{idCalcRules:116,result:0,serviceId:1})*data.insuredDays);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "result[1]*=reference.search16(data.age,{idCalcRules:140,result:0,serviceId:1})||1;",
+            "sportGroups[\"erv-riskful-sport\"]&&(result[1]*=2);",
+            "if (sportGroups[\"erv-sport\"]) { result[1]=result[1]*1; }",
+            "result[110]=result[110]*(reference.search16(data[\"age\"], {idCalcRules: 3988, result: 0, serviceId: 110}) || 1);"
+            ]
+            },
+            {
+            "multiplierType": null,
+            "calcRule": [
+            "if (service[\"tripCancel\"]>0) { result[121]+=reference.search1361(service[\"tripCancel\"], {idCalcRules: 3971, result: 0, serviceId: 121}); }"
+            ]
+            }
+            ]
+            }
+            ]
+            }
+            }
 
     + Schema
 
