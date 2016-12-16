@@ -9,7 +9,8 @@ HOST: http://api.sandbox.cherehapa.ru/v2/
 
 Для продолжения знакомства с системой, смотрите раздел "Расчет и выписка полисов".
 
-В каждом разделе есть пример ПРАВИЛЬНОГО ответа системы для сравнения.
+В каждом разделе есть пример ПРАВИЛЬНОГО ответа системы для сравнения;
+Ограничения в схемах на значения status даны для ответов на корректные запросы (ответов которые не возвращают ошибку).
 
 В тех случаях когда указано, что запрос выполняется очень долго, рекомендуется выполнять запросы с фильтром или быть готовым ожидать от 1 минуты и более.
 
@@ -73,7 +74,7 @@ HOST: http://api.sandbox.cherehapa.ru/v2/
     + Schema
 
             {"type":"object",
-             "properties":{"status":{"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+             "properties":{"status":{"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                            "country":{"type":"array", 
                                       "minItems": 1,
                                       "items":{"type":"object",
@@ -132,7 +133,7 @@ HOST: http://api.sandbox.cherehapa.ru/v2/
     + Schema
 
             {"type":"object",
-             "properties":{"status":{"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+             "properties":{"status":{"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                            "country":{"type":"object",
                                       "required":["id","code","name","enName","fullName","iso2","iso3","countryAlias"],
                                                "properties":{"id":{"type":"number","minimum":1,"exclusiveMinimum": false},
@@ -221,7 +222,7 @@ FIXME: После закрытия CHEB-850 поправить схему - по
     + Schema
 
             {"type":"object",
-             "properties":{"status":{"type":"number","minimum":100,"maximum":600,"exclusiveMinimum":false,"exclusiveMaximum":false},
+             "properties":{"status":{"type":"number","minimum":200,"maximum":200,"exclusiveMinimum":false,"exclusiveMaximum":false},
                            "countryGroup":{"type":"array", 
                                            "minItems": 6,
                                            "items":{"type":"object",
@@ -302,7 +303,7 @@ FIXME: такое же как у /countryGroup - поле isPublic уйдёт, �
     + Schema
 
             {"type":"object",
-             "properties":{"status":{"type":"number","minimum":100,"maximum":600,"exclusiveMinimum":false,"exclusiveMaximum":false},
+             "properties":{"status":{"type":"number","minimum":200,"maximum":200,"exclusiveMinimum":false,"exclusiveMaximum":false},
                            "countryGroup":{"type":"object",
                                            "required":["id","code","name","companyId","isPublic","country"],
                                            "properties":{"id":{"type":"number","minimum":1,"exclusiveMinimum": false},
@@ -510,7 +511,7 @@ FIXME:  в Schema значения для "insuranceHospitals" и "whiteLogo" д
             {
                 "type":"object",
                 "properties": {
-                  "status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+                  "status": {"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                   "company":{"type":"object",
                              "required":["id", "code","isBlocked","name","logo","color","insuranceRules",
                                          "insuranceHospitals","useLocalName","useInsurerBirthday",
@@ -601,7 +602,7 @@ FIXME: после исправления CHEB-850 поправить схему 
             {
                 "type":"object",
                 "properties":{
-                  "status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+                  "status": {"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                   "service":{"type":"array",
                              "minItems": 1,
                              "items":{"type":"object",
@@ -699,7 +700,7 @@ FIXME: после закрытия CHEB-850 поправить схему: па�
             {
                 "type":"object",
                 "properties": {
-                  "status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+                  "status": {"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                   "service":{"type":"object",
                              "required":["id","sortIndex","code","name","shortName","description","units","serviceGroupId","defaultValue",
                                                   "isGroupMaster","unitsText","serviceValue"],
@@ -792,7 +793,7 @@ FIXME: после закрытия CHEB-850 поправить схему: па�
 
             {
              "type":"object",
-             "properties": {"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+             "properties": {"status": {"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                             "serviceGroup":{"type":"array",
                                             "minItems": 1,
                                             "items":{"type":"object",
@@ -849,7 +850,7 @@ FIXME: после закрытия CHEB-850 поправить схему: па�
 
             {
              "type":"object",
-             "properties": {"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+             "properties": {"status": {"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                             "serviceGroup":{"type":"object",
                                             "required":["id","code","name","parentGroupId","sortIndex","description"],
                                             "properties":{"id":{"type":"number","minimum":1,"exclusiveMinimum": false},
@@ -917,7 +918,7 @@ FIXME: после закрытия CHEB-850 поправить схему: па�
 
             {
              "type":"object",
-             "properties": {"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+             "properties": {"status": {"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                             "sport":{"type":"array",
                                      "minItems": 1,
                                      "items":{"type":"object",
@@ -966,7 +967,7 @@ FIXME: после закрытия CHEB-850 поправить схему: па�
 
             {
              "type":"object",
-             "properties":{"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+             "properties":{"status": {"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                            "sport":{"type":"object",
                                     "required":["id","name","code","isCompetition","sortIndex"],
                                     "properties":{"id":{"type":"number","minimum":1,"exclusiveMinimum": false},
@@ -2284,7 +2285,7 @@ FIXME: везде тип "code" должен быть строкой, сейча
 
             { "type":"object",
               "required":["status","insuranceProduct"],
-              "properties":{"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+              "properties":{"status": {"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                             "insuranceProduct": {"type":"array",
                                                  "minitems":1,
                                                  "items":{"type":"object",
@@ -2761,7 +2762,7 @@ FIXME: поле "multiplierType":"null", из "calcRulesGroup" в ответе �
 
             { "type":"object",
               "required":["status","insuranceProduct"],
-              "properties":{"status": {"type":"number","minimum":100,"maximum":600,"exclusiveMinimum": false,"exclusiveMaximum": false},
+              "properties":{"status": {"type":"number","minimum":200,"maximum":200,"exclusiveMinimum": false,"exclusiveMaximum": false},
                             "insuranceProduct":{"type":"object",
                                                  "required":["id","code","name","isLimited","isFixed","company","insuranceSubProduct"],
                                                  "properties":{"id": {"type":"number","minimum":1,"exclusiveMinimum": false},
